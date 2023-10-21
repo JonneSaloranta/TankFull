@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'refuel.apps.RefuelConfig',
-    'bootstrap5',
+    'custom_login.apps.CustomLoginConfig',
+    'email_login.apps.EmailLoginConfig',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +56,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+AUTH_USER_MODEL = 'email_login.User'
 
 ROOT_URLCONF = 'core.urls'
 
