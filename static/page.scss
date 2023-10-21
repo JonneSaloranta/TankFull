@@ -2,30 +2,8 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    font-size: 62.5%;
 }
 
 :root {
-    --color-primary: #f9ed69;
-    --color-secondary: #f08a5d;
-    --color-tertiary: #b83b5e;
-    --color-quaternary: #6a2c70;
-    --color-quinary: #1c1c1c;
-
-    --color-white: #fff;
-    --color-black: #000;
-    --bg-color: #1c1c1c;
-}
-
-body {
-    font-family: "Roboto", sans-serif;
-    font-size: 1.6rem;
-    line-height: 1.5;
-    color: var(--color-white);
-    background-color: var(--bg-color);
+    --bs-body-bg-rgb: 255, 255, 255;
 }
