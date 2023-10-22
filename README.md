@@ -15,6 +15,14 @@ The Refuel Data Tracker is a tool designed to help users keep track of their ref
 
 ## Installation
 
+Create a .env file in the root directory and add the following environment variables:
+
+```bash
+SECRET_KEY=your_secret_key
+DEBUG=True or False
+ALLOWED_HOSTS='localhost', '*', '123.45.67.89' # example
+```
+
 ### Docker
 
 To install the Refuel Data Tracker using Docker, follow these steps:
