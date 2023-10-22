@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 features_list = [
         {
@@ -46,3 +47,15 @@ def features(request):
     }
 
     return render(request, 'features.html', context=context)
+
+from email_login.models import User
+
+@login_required(login_url='/login/')
+def user_profile(request, user_id):
+    user = User.objects.filter(id=user_id).first()
+
+    context = {
+        'user': user
+    }
+
+    return render(request, 'user_profile.html', context=context)

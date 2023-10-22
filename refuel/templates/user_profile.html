@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container text-center">
+    <h2>{{user.name}}
+        {% if user.is_superuser %}
+        <span class="badge bg-warning-subtle border border-warning-subtle text-warning-emphasis rounded-pill">Admin</span>
+        {% endif %}
+    </h2>
+</div>
+
+
+{% endblock %}
