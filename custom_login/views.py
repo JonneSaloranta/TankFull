@@ -3,12 +3,6 @@ from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.decorators import login_required
 from .forms import UserLoginForm, UserRegisterForm
 
-# Create your views here.
-
-@login_required(login_url='login/')
-def home(request):
-    return render(request, 'home.html')
-
 def login_view(request):
     if request.user.is_authenticated:
         return redirect("/")
