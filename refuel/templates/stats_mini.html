@@ -1,0 +1,12 @@
+<div class="container">
+    {% if stats %}
+    {% for stat in stats %}
+    <div class="row">
+        <div class="col-md-12">
+            <h2>{{ stat.name }}</h2>
+            <p>{{ stat.value }}</p>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>

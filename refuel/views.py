@@ -1,6 +1,31 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
+    # stats.avg_consumption
+    # stats.fuel_consumed
+    # stats.total_distance
+    # stats.total_cost
+
+stats = [
+    {
+        'name': 'Average consumption',
+        'value': '6.5',
+    },
+    {
+        'name': 'Fuel consumed',
+        'value': '1000',
+    },
+    {
+        'name': 'Total distance',
+        'value': '1000',
+    },
+    {
+        'name': 'Total cost',
+        'value': '1000',
+    },
+]
+    
+
 features_list = [
         {
             'name': 'Keep track',
@@ -36,7 +61,8 @@ features_list = [
 
 def index(request):
     context = {
-        'features': features_list
+        'features': features_list,
+        'stats': stats
     }
 
     return render(request, 'index.html' , context=context)
