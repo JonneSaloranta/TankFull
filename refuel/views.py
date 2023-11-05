@@ -75,13 +75,18 @@ def features(request):
     return render(request, 'features.html', context=context)
 
 from email_login.models import User
+from .models import Vehicle, Refuel
 
 @login_required(login_url='/login/')
 def user_profile(request, user_id):
     user = User.objects.filter(id=user_id).first()
+    vehicles = Vehicle.objects.filter(user=user)
+    refuels = Refuel.objects.filter(user=user)
 
     context = {
-        'user': user
+        'user': user,
+        'vehicles': vehicles,
+        'refuels': refuels,
     }
 
     return render(request, 'user_profile.html', context=context)
