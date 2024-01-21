@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    # 'django.middleware.locale.LocaleMiddleware'
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -77,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'core.wsgi.application'
+# WSGI_APPLICATION = 'core.wsgi.application'
 
 
 # Database
@@ -113,8 +114,6 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'fi-fi'
-
 TIME_ZONE = 'Europe/Helsinki'
 
 USE_I18N = True
@@ -141,3 +140,43 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# from django.utils.translation import gettext_lazy as _
+
+LANGUAGE_CODE = 'en'
+
+# LOCALE_PATHS = [
+#     BASE_DIR / 'locale'
+# ]
+
+# LANGUAGES = (
+#     ('fi', _('Finnish')),
+#     ('en', _('English')),
+#     ('sv', _('Swedish')),
+#     ('ru', _('Russian'))
+# )
+
+# # Exclude virtual environment from translations
+# from fnmatch import fnmatch
+
+# def ignore_patterns(path, names):
+#     return [name for name in names if fnmatch(name, 'venv*')]
+
+# IGNORE_PATHS = [str(BASE_DIR / 'venv')]
+
+# try:
+#     import django.conf.locale
+#     for lang in LANGUAGES:
+#         django.conf.locale.LANG_INFO[lang[0]]['bidi'] = False
+# except Exception as e:
+#     pass
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+RESEND_SMTP_PORT = 587
+RESEND_SMTP_USERNAME = 'resend'
+RESEND_SMTP_HOST = 'smtp.resend.com'
+
+PASSWORD_RESET_TIMEOUT = 1440
+
+LOGIN_URL = '/login'
