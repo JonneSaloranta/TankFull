@@ -45,13 +45,6 @@ class Refuel(models.Model):
     def delete(self, *args, **kwargs):
         self.vehicle.save()
         super(Refuel, self).delete(*args, **kwargs)
-
-    def get_driven_distance(self):
-        if self.id == 1:
-            return 0
-        else:
-            return self.odometer - Refuel.objects.get(id=self.id-1).odometer
-
     
     class Meta:
         ordering = ['-date']
