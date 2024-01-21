@@ -50,13 +50,20 @@ def register_view(request):
         user = form.save(commit=False)
         password = form.cleaned_data.get("password")
         user.set_password(password)
-        user.is_active = False
-        user.save()
+        if config('RESEND_API_KEY'):
+            user.is_active = False
+            user.save()
+            activateEmail(request, user, form.cleaned_data.get("email"))
+            messages.success(request, "We have sent you an email. Please confirm your email address to complete registration.")
+        else:
+            user.is_active = True
+            user.save()
+            login(request, user)
+            messages.success(request, 'Your account has been created.')
+            if next:
+                return redirect(next)
+            return redirect("/")
         
-        print(f"{user}, {form.cleaned_data.get('email')}")
-        activateEmail(request, user, form.cleaned_data.get("email"))
-        messages.success(request, "We have sent you an email. Please confirm your email address to complete registration.")
-
         if next:
             return redirect(next)
         return redirect("/")
