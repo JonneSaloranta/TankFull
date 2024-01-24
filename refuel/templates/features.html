@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+
 {% block content %}
 
 
 <div class="container py-5" id="icon-grid">
-    <h2 class="pb-2 border-bottom">Features</h2>
+    <h2 class="pb-2 border-bottom">{% trans 'Features' %}</h2>
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
 
@@ -12,8 +14,8 @@
         {% for feature in features %}
         <div class="col d-flex align-items-start" tabindex="0">
             <div>
-                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis"><i class="{{feature.icon}}"></i> {{feature.name}}</h3>
-                <p>{{feature.description}}</p>
+                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis"><i class="{{feature.icon}}"></i> {% trans feature.name %}</h3>
+                <p>{% trans feature.description %}</p>
             </div>
 
         </div>

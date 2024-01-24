@@ -60,3 +60,7 @@ class UserRegisterForm(forms.ModelForm):
         if password != password2:
             raise forms.ValidationError("Passwords must match")
         return super(UserRegisterForm, self).clean()
+    
+class RequestActivationEmailForm(forms.Form):
+    email = forms.EmailField(label='Email Address')
+    

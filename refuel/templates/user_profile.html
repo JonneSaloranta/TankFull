@@ -10,14 +10,17 @@
 </div>
 <div class="container">
     <div class="row">
-        {% for vehicle in vehicles %}
+        {% for refuel in refuels %}
+
+        <h1>{{refuel.get_total_distance|default_if_none:""}}</h1>
 
 
         <div class="col-sm-6 mb-3">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">{{vehicle.vehicle_name}}</h5>
-                    <p class="card-text">{{vehicle.make|default_if_none:""}} {{vehicle.model|default_if_none:""}} {{vehicle.year|default_if_none:""}} {{vehicle.fuel_type|default_if_none:""}}
+                    <h5 class="card-title">{{refuel.refuel_name}}</h5>
+                    <p class="card-text">{{refuel.make|default_if_none:""}} {{refuel.model|default_if_none:""}} {{refuel.year|default_if_none:""}} {{refuel.fuel_type|default_if_none:""}}
+                        {{refuel.get_driven_distance|default_if_none:""}}
                     </p>
 
                     <a href="#" class="btn btn-primary">Go somewhere</a>

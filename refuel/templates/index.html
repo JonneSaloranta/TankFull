@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 
-{% include "stats_mini.html" %}
+{% load i18n %}
+
 {% block content %}
 <div class="container text-center">
     {%if user.is_authenticated%}
-    <h1>Welcome {{request.user.name|capfirst}}</h1>
+    <h1>{% trans 'Welcome' %} {{request.user.name|capfirst}}</h1>
 
     {%endif%}
+    <h1>{% trans "Home" %}</h1>
+    <p class="lead">{% trans 'Welcome to the home page of the website. This is where you can find all the information about the website and the project.' %}</p>
 </div>
 
 

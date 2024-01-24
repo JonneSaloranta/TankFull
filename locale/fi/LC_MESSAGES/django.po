@@ -1,0 +1,155 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-24 22:12+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\core\settings.py:167
+msgid "English"
+msgstr "Englanti"
+
+#: .\core\settings.py:168
+msgid "Finnish"
+msgstr "Suomi"
+
+#: .\core\settings.py:169
+msgid "Swedish"
+msgstr "Ruotsi"
+
+#: .\core\settings.py:170
+msgid "Russian"
+msgstr "Venäjä"
+
+#: .\custom_login\templates\login.html:30
+msgid "Please sign in"
+msgstr "Kirjaudu sisään"
+
+#: .\custom_login\templates\login.html:34
+msgid "Email address"
+msgstr "Sähköpostiosoite"
+
+#: .\custom_login\templates\login.html:39
+msgid "Password"
+msgstr "Salasana"
+
+#: .\custom_login\templates\login.html:45
+msgid "Remember me"
+msgstr "Muista minut"
+
+#: .\custom_login\templates\login.html:48
+msgid "Sign in"
+msgstr "Kirjaudu sisään"
+
+#: .\custom_login\templates\login.html:52
+msgid "Need a new account activation link?"
+msgstr "Tarvitsetko uuden aktivointi linkin?"
+
+#: .\custom_login\templates\login.html:53
+msgid "Resend Activation Email"
+msgstr "Uudelleen lähetä aktivointi sähköposti"
+
+#: .\custom_login\templates\login.html:57
+msgid "Don't have an account?"
+msgstr "Eikö sinulla ole tiliä?"
+
+#: .\custom_login\templates\login.html:58
+msgid "Register"
+msgstr "Rekisteröidy"
+
+#: .\refuel\templates\features.html:9 .\refuel\templates\navbar.html:19
+msgid "Features"
+msgstr "Ominaisuudet"
+
+#: .\refuel\templates\index.html:8
+msgid "Welcome"
+msgstr "Tervetuloa"
+
+#: .\refuel\templates\index.html:11
+msgid "Home"
+msgstr "Etusivu"
+
+#: .\refuel\templates\index.html:12
+msgid ""
+"Welcome to the home page of the website. This is where you can find all the "
+"information about the website and the project."
+msgstr ""
+"Tervetuloa sivuston etusivulle. Täältä löydät kaiken tarvittavan tiedon "
+"sivustosta ja projektista."
+
+#: .\refuel\templates\navbar.html:13
+msgid "Dashboard"
+msgstr "Hallintapaneeli"
+
+#: .\refuel\templates\navbar.html:21
+msgid "Login"
+msgstr "Kirjaudu sisään"
+
+#: .\refuel\templates\navbar.html:23
+msgid "Logout"
+msgstr "Kirjaudu ulos"
+
+#: .\refuel\views.py:36
+msgid "Keep track"
+msgstr "Pidä kirjaa"
+
+#: .\refuel\views.py:37
+msgid "Keep track of your refuels and see how much you have spent on fuel."
+msgstr ""
+"Pidä kirjaa tankkauksistasi ja näe kuinka paljon olet käyttänyt rahaa "
+"polttoaineeseen."
+
+#: .\refuel\views.py:41
+msgid "Statistics"
+msgstr "Tilastot"
+
+#: .\refuel\views.py:42
+msgid "See your refuel statistics in a graph."
+msgstr "Näe tankkaustilastosi graafina."
+
+#: .\refuel\views.py:46
+msgid "Compare"
+msgstr "Vertaa"
+
+#: .\refuel\views.py:47
+#, fuzzy
+#| msgid "Share your refuels with others."
+msgid "Compare your refuels to others."
+msgstr "Jaa tankkauksesi muiden kanssa."
+
+#: .\refuel\views.py:51
+msgid "Share"
+msgstr "Jaa"
+
+#: .\refuel\views.py:52
+msgid "Share your refuels with others."
+msgstr "Jaa tankkauksesi muiden kanssa."
+
+#: .\refuel\views.py:56
+msgid "Export"
+msgstr "Vie"
+
+#: .\refuel\views.py:57
+msgid "Export your refuels to a file."
+msgstr "Vie tankkauksesi tiedostoon."
+
+#: .\refuel\views.py:61
+msgid "Import"
+msgstr "Tuo"
+
+#: .\refuel\views.py:62
+msgid "Import your refuels from a file."
+msgstr "Tuo tankkauksesi tiedostosta."
