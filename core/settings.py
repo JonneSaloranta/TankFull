@@ -32,6 +32,7 @@ DEBUG = config('DEBUG', cast=bool, default=False)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=lambda v: [s.strip() for s in v.split(',')])
 
+INTERNAL_IPS = config('INTERNAL_IPS', cast=lambda v: [s.strip() for s in v.split(',')])
 
 # Application definition
 
@@ -45,9 +46,12 @@ INSTALLED_APPS = [
     'refuel.apps.RefuelConfig',
     'custom_login.apps.CustomLoginConfig',
     'email_login.apps.EmailLoginConfig',
+    'debug_toolbar',
+
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     # 'django.middleware.locale.LocaleMiddleware'
@@ -110,6 +114,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:6379/',
+        'OPTIONS': {
+            "PASSWORD": config('REDIS_PASSWORD'),
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    }
+}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -144,32 +159,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # from django.utils.translation import gettext_lazy as _
 
 LANGUAGE_CODE = 'en'
-
-# LOCALE_PATHS = [
-#     BASE_DIR / 'locale'
-# ]
-
-# LANGUAGES = (
-#     ('fi', _('Finnish')),
-#     ('en', _('English')),
-#     ('sv', _('Swedish')),
-#     ('ru', _('Russian'))
-# )
-
-# # Exclude virtual environment from translations
-# from fnmatch import fnmatch
-
-# def ignore_patterns(path, names):
-#     return [name for name in names if fnmatch(name, 'venv*')]
-
-# IGNORE_PATHS = [str(BASE_DIR / 'venv')]
-
-# try:
-#     import django.conf.locale
-#     for lang in LANGUAGES:
-#         django.conf.locale.LANG_INFO[lang[0]]['bidi'] = False
-# except Exception as e:
-#     pass
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
