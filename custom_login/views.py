@@ -50,7 +50,9 @@ def register_view(request):
         user = form.save(commit=False)
         password = form.cleaned_data.get("password")
         user.set_password(password)
-        if config('RESEND_API_KEY'):
+        resend_api_key = settings.RESEND_API_KEY
+
+        if resend_api_key:
             user.is_active = False
             user.save()
             activateEmail(request, user, form.cleaned_data.get("email"))
