@@ -18,3 +18,5 @@ tzdata==2023.3
 tzlocal==5.1
 xlwt==1.3.0
 six
+django-debug-toolbar
+django-redis
