@@ -24,8 +24,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 from decouple import config
 from django.utils.translation import gettext_lazy as _
 
-
-
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -134,6 +132,8 @@ TIME_ZONE = 'Europe/Helsinki'
 
 USE_I18N = True
 
+USE_L10N = True
+
 USE_TZ = True
 
 
@@ -157,9 +157,11 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# from django.utils.translation import gettext_lazy as _
+LOCALE_PATHS = [
+    BASE_DIR / 'locale'
+]
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'en-us'
 
 LANGUAGES = [
     ('en', _('English')),
@@ -168,15 +170,12 @@ LANGUAGES = [
     ('ru', _('Russian')),
 ]
 
-LOCALE_PATHS = [
-    BASE_DIR / 'locale'
-]
-
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 RESEND_SMTP_PORT = 587
 RESEND_SMTP_USERNAME = 'resend'
 RESEND_SMTP_HOST = 'smtp.resend.com'
+RESEND_API_KEY = config('RESEND_API_KEY')
 
 PASSWORD_RESET_TIMEOUT = 1440
 
