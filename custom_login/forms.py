@@ -61,6 +61,6 @@ class UserRegisterForm(forms.ModelForm):
             raise forms.ValidationError("Passwords must match")
         return super(UserRegisterForm, self).clean()
     
-class ResendActivationEmailForm(forms.Form):
+class RequestActivationEmailForm(forms.Form):
     email = forms.EmailField(label='Email Address')
     
