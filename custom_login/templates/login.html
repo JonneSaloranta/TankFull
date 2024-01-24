@@ -19,6 +19,7 @@
 <body data-bs-theme="dark">
 
     {% include "navbar.html" %}
+    {% include "notifications.html"%}
 
     <div class="container-sm">
         <main class="form-signin m-auto">
@@ -44,6 +45,11 @@
                 </div>
                 <input class="btn btn-primary w-100 py-2" type="submit" value="Sign in">
             </form>
+
+            <div class="container text-center py-3">
+                <p>Need a new account activation link?</p>
+                <a href="{% url 'resend_activation_email' %}">Resend Activation Email</a>
+            </div>
 
             <div class="container text-center py-3">
                 <p>Don't have an account?</p>
