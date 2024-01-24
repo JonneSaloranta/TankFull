@@ -1,3 +1,4 @@
+{% load i18n %}
 <div class="container">
 
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
@@ -6,20 +7,20 @@
         </a>
 
         <ul class="nav nav-pills">
-
+            <li class="nav-item"><a href="{%url 'refuel:index'%}" class="nav-link">{% trans "Home"%}</a></li>
             {%if user.is_authenticated%}
             {% if user.is_superuser %}
-            <li class="nav-item"><a href="/admin" class="nav-link">Dashboard <i class="bi bi-speedometer"></i></a></li>
+            <li class="nav-item"><a href="/admin" class="nav-link">{% trans "Dashboard"%} <i class="bi bi-speedometer"></i></a></li>
             {% endif %}
 
             {# path('user/<int:user_id>/', views.user_profile, name='user_profile'), #}
             <li class="nav-item"><a href="{% url 'refuel:user_profile' user_id=request.user.id %}" class="nav-link">{{request.user.name}} <i class="bi bi-person-circle"></i></a></li>
             {%endif%}
-            <li class="nav-item"><a href="{%url 'refuel:features'%}" class="nav-link">Features</a></li>
+            <li class="nav-item"><a href="{%url 'refuel:features'%}" class="nav-link">{% trans "Features"%}</a></li>
             {%if not user.is_authenticated%}
-            <li class="nav-item"><a href="{%url 'login'%}" class="nav-link">Login</a></li>
+            <li class="nav-item"><a href="{%url 'login'%}" class="nav-link">{% trans "Login"%}</a></li>
             {%else%}
-            <li class="nav-item"><a href="{%url 'logout'%}" class="nav-link">Logout</a></li>
+            <li class="nav-item"><a href="{%url 'logout'%}" class="nav-link">{% trans "Logout" %}</a></li>
             {%endif%}
         </ul>
     </header>
