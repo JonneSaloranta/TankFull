@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-24 14:45+0200\n"
+"POT-Creation-Date: 2024-01-24 21:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,20 +17,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: .\core\settings.py:165
+#: .\core\settings.py:163
 msgid "English"
 msgstr ""
 
-#: .\core\settings.py:166
+#: .\core\settings.py:164
 msgid "Finnish"
 msgstr ""
 
-#: .\core\settings.py:167
+#: .\core\settings.py:165
 msgid "Swedish"
 msgstr ""
 
-#: .\core\settings.py:168
+#: .\core\settings.py:166
 msgid "Russian"
+msgstr ""
+
+#: .\refuel\templates\index.html:7
+msgid "Welcome"
 msgstr ""
 
 #: .\refuel\views.py:51
