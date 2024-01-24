@@ -6,6 +6,7 @@ import os
 from django.conf import settings
 from django.http import JsonResponse
 from django.core.mail import EmailMessage, get_connection
+from django.views.decorators.cache import cache_page
 
 from decouple import config
 
@@ -63,6 +64,7 @@ features_list = [
         },
     ]
 
+@cache_page(60 * 15)
 def index(request):
     context = {
         'features': features_list,
