@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
-from .forms import UserLoginForm, UserRegisterForm
+from .forms import UserLoginForm, UserRegisterForm, RequestActivationEmailForm
 from django.contrib import messages
 from django.template.loader import render_to_string
 from django.contrib.sites.shortcuts import get_current_site
@@ -34,7 +34,7 @@ def login_view(request):
                 messages.error(request, 'Your account is not active. Please check your email for activation instructions.')
         else:
             messages.error(request, 'Invalid email or password.')
-
+    
     context = {
         'form': form,
     }
@@ -77,3 +77,21 @@ def logout_view(request):
     logout(request)
     messages.success(request, 'You have been successfully logged out.')
     return redirect("/")
+
+def request_activation_email(request):
+    if request.method == 'POST':
+        form = RequestActivationEmailForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            user_model = get_user_model()
+            try:
+                user = user_model.objects.get(email=email, is_active=False)
+                activateEmail(request, user, email)
+                messages.success(request, "Activation email will be sent if the email is associated with an existing account.")
+            except user_model.DoesNotExist:
+                messages.success(request, "Activation email will be sent if the email is associated with an existing account.")
+            return redirect('request_activation_email')
+    else:
+        form = RequestActivationEmailForm()
+
+    return render(request, 'request_activation_email.html', {'form': form})
