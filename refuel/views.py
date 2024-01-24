@@ -33,18 +33,18 @@ stats = [
 
 features_list = [
         {
-            'name': 'Keep track',
-            'description': 'Keep track of your refuels and see how much you have spent on fuel.',
+            'name': _('Keep track'),
+            'description': _('Keep track of your refuels and see how much you have spent on fuel.'),
             'icon': 'bi bi-database'
         },
         {
-            'name': 'Statistics',
-            'description': 'See your refuel statistics in a graph.',
+            'name': _('Statistics'),
+            'description': _('See your refuel statistics in a graph.'),
             'icon': 'bi bi-graph-up'
         },
         {
-            'name': 'Compare',
-            'description': 'Compare your refuels to others.',
+            'name': _('Compare'),
+            'description': _('Compare your refuels to others.'),
             'icon': 'bi bi-people'
         },
         {
@@ -64,7 +64,7 @@ features_list = [
         },
     ]
 
-@cache_page(60 * 15)
+# @cache_page(60 * 15)
 def index(request):
     context = {
         'features': features_list,
