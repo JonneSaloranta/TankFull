@@ -3,20 +3,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-25 12:46+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2024-01-25 20:35+0000\n"
+"Last-Translator: Weblate Admin <weblate.admin@example.com>\n"
+"Language-Team: Finnish <http://weblate.example.com/projects/refuel-project/"
+"development/fi/>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.3.1\n"
 
 #: .\core\settings.py:167
 msgid "English"
@@ -35,26 +36,24 @@ msgid "Russian"
 msgstr "Venäjä"
 
 #: .\custom_login\templates\login.html:30
-#, fuzzy
-#| msgid "Please sign in"
 msgid "please-login-in"
 msgstr "Kirjaudu sisään"
 
 #: .\custom_login\templates\login.html:34
 msgid "email-field-text"
-msgstr ""
+msgstr "Sähköposti"
 
 #: .\custom_login\templates\login.html:39
 msgid "password-field-text"
-msgstr ""
+msgstr "Salasana"
 
 #: .\custom_login\templates\login.html:45
 msgid "login-remember-me-text"
-msgstr ""
+msgstr "Muista minut"
 
 #: .\custom_login\templates\login.html:48 .\refuel\templates\navbar.html:21
 msgid "login-text"
-msgstr ""
+msgstr "Kirjaudu"
 
 #: .\custom_login\templates\login.html:52
 #, fuzzy
@@ -64,11 +63,11 @@ msgstr "Tarvitsetko uuden aktivointi linkin?"
 
 #: .\custom_login\templates\login.html:53
 msgid "resend-email-activation-button"
-msgstr ""
+msgstr "Aktiivinen"
 
 #: .\custom_login\templates\login.html:57
 msgid "need-an-account-question-text"
-msgstr ""
+msgstr "Tarvitsetko käyttäjää?"
 
 #: .\custom_login\templates\login.html:58
 #, fuzzy
@@ -88,15 +87,17 @@ msgstr "Tervetuloa"
 
 #: .\refuel\templates\index.html:11 .\refuel\templates\navbar.html:10
 msgid "homepage-text"
-msgstr ""
+msgstr "Etusivu"
 
 #: .\refuel\templates\index.html:12
 msgid "homepage-welcome-text-and-introduction"
 msgstr ""
+"Tervetuloa nettisivun etusivulle. Täältä löydät kaiken tarvitsemasi tiedon "
+"tästä nettisivusta ja projektista."
 
 #: .\refuel\templates\navbar.html:13
 msgid "admin-dashboard-text"
-msgstr ""
+msgstr "Kojelauta"
 
 #: .\refuel\templates\navbar.html:19
 #, fuzzy
@@ -106,55 +107,57 @@ msgstr "Ominaisuudet"
 
 #: .\refuel\templates\navbar.html:23
 msgid "logout-text"
-msgstr ""
+msgstr "Kirjaudu ulos"
 
 #: .\refuel\views.py:36
 msgid "keep-track-title-name"
-msgstr ""
+msgstr "Pidä kirjaa"
 
 #: .\refuel\views.py:37
 msgid "keep-track-description-text"
 msgstr ""
+"Pidä kirjaa tankkauksista ja näe kuinka paljon olet käyttänyt "
+"polttoaineeseen."
 
 #: .\refuel\views.py:41
 msgid "statistics-title-name"
-msgstr ""
+msgstr "Tilastot"
 
 #: .\refuel\views.py:42
 msgid "statistics-description-text"
-msgstr ""
+msgstr "Näe tankkaustilastosi graafissa."
 
 #: .\refuel\views.py:46
 msgid "compare-title-name"
-msgstr ""
+msgstr "Vertaa"
 
 #: .\refuel\views.py:47
 msgid "compare-description-text"
-msgstr ""
+msgstr "Vertaa omia tankkauksiasi toisiin."
 
 #: .\refuel\views.py:51
 msgid "share-title-name"
-msgstr ""
+msgstr "Jaa"
 
 #: .\refuel\views.py:52
 msgid "share-description-text"
-msgstr ""
+msgstr "Jaa tankkauksesi muiden kanssa."
 
 #: .\refuel\views.py:56
 msgid "export-title-name"
-msgstr ""
+msgstr "Vie"
 
 #: .\refuel\views.py:57
 msgid "export-description-text"
-msgstr ""
+msgstr "Vie tankkauksesi tiedostoon."
 
 #: .\refuel\views.py:61
 msgid "import-title-name"
-msgstr ""
+msgstr "Tuo"
 
 #: .\refuel\views.py:62
 msgid "import-description-text"
-msgstr ""
+msgstr "Tuo tankkauksesi tiedostosta."
 
 #~ msgid "Email address"
 #~ msgstr "Sähköpostiosoite"
