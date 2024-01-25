@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-24 22:12+0200\n"
+"POT-Creation-Date: 2024-01-25 12:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,121 +35,200 @@ msgid "Russian"
 msgstr "Venäjä"
 
 #: .\custom_login\templates\login.html:30
-msgid "Please sign in"
+#, fuzzy
+#| msgid "Please sign in"
+msgid "please-login-in"
 msgstr "Kirjaudu sisään"
 
 #: .\custom_login\templates\login.html:34
-msgid "Email address"
-msgstr "Sähköpostiosoite"
+msgid "email-field-text"
+msgstr ""
 
 #: .\custom_login\templates\login.html:39
-msgid "Password"
-msgstr "Salasana"
+msgid "password-field-text"
+msgstr ""
 
 #: .\custom_login\templates\login.html:45
-msgid "Remember me"
-msgstr "Muista minut"
+msgid "login-remember-me-text"
+msgstr ""
 
-#: .\custom_login\templates\login.html:48
-msgid "Sign in"
-msgstr "Kirjaudu sisään"
+#: .\custom_login\templates\login.html:48 .\refuel\templates\navbar.html:21
+msgid "login-text"
+msgstr ""
 
 #: .\custom_login\templates\login.html:52
-msgid "Need a new account activation link?"
+#, fuzzy
+#| msgid "Need a new account activation link?"
+msgid "need-new-account-activation-link-question-text"
 msgstr "Tarvitsetko uuden aktivointi linkin?"
 
 #: .\custom_login\templates\login.html:53
-msgid "Resend Activation Email"
-msgstr "Uudelleen lähetä aktivointi sähköposti"
+msgid "resend-email-activation-button"
+msgstr ""
 
 #: .\custom_login\templates\login.html:57
-msgid "Don't have an account?"
-msgstr "Eikö sinulla ole tiliä?"
+msgid "need-an-account-question-text"
+msgstr ""
 
 #: .\custom_login\templates\login.html:58
-msgid "Register"
+#, fuzzy
+#| msgid "Register"
+msgid "register-text"
 msgstr "Rekisteröidy"
 
-#: .\refuel\templates\features.html:9 .\refuel\templates\navbar.html:19
+#: .\refuel\templates\features.html:9
 msgid "Features"
 msgstr "Ominaisuudet"
 
 #: .\refuel\templates\index.html:8
-msgid "Welcome"
+#, fuzzy
+#| msgid "Welcome"
+msgid "welcome-text"
 msgstr "Tervetuloa"
 
-#: .\refuel\templates\index.html:11
-msgid "Home"
-msgstr "Etusivu"
+#: .\refuel\templates\index.html:11 .\refuel\templates\navbar.html:10
+msgid "homepage-text"
+msgstr ""
 
 #: .\refuel\templates\index.html:12
-msgid ""
-"Welcome to the home page of the website. This is where you can find all the "
-"information about the website and the project."
+msgid "homepage-welcome-text-and-introduction"
 msgstr ""
-"Tervetuloa sivuston etusivulle. Täältä löydät kaiken tarvittavan tiedon "
-"sivustosta ja projektista."
 
 #: .\refuel\templates\navbar.html:13
-msgid "Dashboard"
-msgstr "Hallintapaneeli"
+msgid "admin-dashboard-text"
+msgstr ""
 
-#: .\refuel\templates\navbar.html:21
-msgid "Login"
-msgstr "Kirjaudu sisään"
+#: .\refuel\templates\navbar.html:19
+#, fuzzy
+#| msgid "Features"
+msgid "features-text"
+msgstr "Ominaisuudet"
 
 #: .\refuel\templates\navbar.html:23
-msgid "Logout"
-msgstr "Kirjaudu ulos"
+msgid "logout-text"
+msgstr ""
 
 #: .\refuel\views.py:36
-msgid "Keep track"
-msgstr "Pidä kirjaa"
+msgid "keep-track-title-name"
+msgstr ""
 
 #: .\refuel\views.py:37
-msgid "Keep track of your refuels and see how much you have spent on fuel."
+msgid "keep-track-description-text"
 msgstr ""
-"Pidä kirjaa tankkauksistasi ja näe kuinka paljon olet käyttänyt rahaa "
-"polttoaineeseen."
 
 #: .\refuel\views.py:41
-msgid "Statistics"
-msgstr "Tilastot"
+msgid "statistics-title-name"
+msgstr ""
 
 #: .\refuel\views.py:42
-msgid "See your refuel statistics in a graph."
-msgstr "Näe tankkaustilastosi graafina."
+msgid "statistics-description-text"
+msgstr ""
 
 #: .\refuel\views.py:46
-msgid "Compare"
-msgstr "Vertaa"
+msgid "compare-title-name"
+msgstr ""
 
 #: .\refuel\views.py:47
-#, fuzzy
-#| msgid "Share your refuels with others."
-msgid "Compare your refuels to others."
-msgstr "Jaa tankkauksesi muiden kanssa."
+msgid "compare-description-text"
+msgstr ""
 
 #: .\refuel\views.py:51
-msgid "Share"
-msgstr "Jaa"
+msgid "share-title-name"
+msgstr ""
 
 #: .\refuel\views.py:52
-msgid "Share your refuels with others."
-msgstr "Jaa tankkauksesi muiden kanssa."
+msgid "share-description-text"
+msgstr ""
 
 #: .\refuel\views.py:56
-msgid "Export"
-msgstr "Vie"
+msgid "export-title-name"
+msgstr ""
 
 #: .\refuel\views.py:57
-msgid "Export your refuels to a file."
-msgstr "Vie tankkauksesi tiedostoon."
+msgid "export-description-text"
+msgstr ""
 
 #: .\refuel\views.py:61
-msgid "Import"
-msgstr "Tuo"
+msgid "import-title-name"
+msgstr ""
 
 #: .\refuel\views.py:62
-msgid "Import your refuels from a file."
-msgstr "Tuo tankkauksesi tiedostosta."
+msgid "import-description-text"
+msgstr ""
+
+#~ msgid "Email address"
+#~ msgstr "Sähköpostiosoite"
+
+#~ msgid "Password"
+#~ msgstr "Salasana"
+
+#~ msgid "Remember me"
+#~ msgstr "Muista minut"
+
+#~ msgid "Sign in"
+#~ msgstr "Kirjaudu sisään"
+
+#~ msgid "Resend Activation Email"
+#~ msgstr "Uudelleen lähetä aktivointi sähköposti"
+
+#~ msgid "Don't have an account?"
+#~ msgstr "Eikö sinulla ole tiliä?"
+
+#~ msgid "Home"
+#~ msgstr "Etusivu"
+
+#~ msgid ""
+#~ "Welcome to the home page of the website. This is where you can find all "
+#~ "the information about the website and the project."
+#~ msgstr ""
+#~ "Tervetuloa sivuston etusivulle. Täältä löydät kaiken tarvittavan tiedon "
+#~ "sivustosta ja projektista."
+
+#~ msgid "Dashboard"
+#~ msgstr "Hallintapaneeli"
+
+#~ msgid "Login"
+#~ msgstr "Kirjaudu sisään"
+
+#~ msgid "Logout"
+#~ msgstr "Kirjaudu ulos"
+
+#~ msgid "Keep track"
+#~ msgstr "Pidä kirjaa"
+
+#~ msgid "Keep track of your refuels and see how much you have spent on fuel."
+#~ msgstr ""
+#~ "Pidä kirjaa tankkauksistasi ja näe kuinka paljon olet käyttänyt rahaa "
+#~ "polttoaineeseen."
+
+#~ msgid "Statistics"
+#~ msgstr "Tilastot"
+
+#~ msgid "See your refuel statistics in a graph."
+#~ msgstr "Näe tankkaustilastosi graafina."
+
+#~ msgid "Compare"
+#~ msgstr "Vertaa"
+
+#, fuzzy
+#~| msgid "Share your refuels with others."
+#~ msgid "Compare your refuels to others."
+#~ msgstr "Jaa tankkauksesi muiden kanssa."
+
+#~ msgid "Share"
+#~ msgstr "Jaa"
+
+#~ msgid "Share your refuels with others."
+#~ msgstr "Jaa tankkauksesi muiden kanssa."
+
+#~ msgid "Export"
+#~ msgstr "Vie"
+
+#~ msgid "Export your refuels to a file."
+#~ msgstr "Vie tankkauksesi tiedostoon."
+
+#~ msgid "Import"
+#~ msgstr "Tuo"
+
+#~ msgid "Import your refuels from a file."
+#~ msgstr "Tuo tankkauksesi tiedostosta."
