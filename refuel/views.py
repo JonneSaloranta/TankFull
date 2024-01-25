@@ -21,27 +21,6 @@ from rest_framework.response import Response
 from token_auth.token_serializer import UserSerializer
 from .serializers import VehicleSerializer  # Import the VehicleSerializer
 
-
-stats = [
-    {
-        'name': 'Average consumption',
-        'value': '6.5',
-    },
-    {
-        'name': 'Fuel consumed',
-        'value': '1000',
-    },
-    {
-        'name': 'Total distance',
-        'value': '1000',
-    },
-    {
-        'name': 'Total cost',
-        'value': '1000',
-    },
-]
-    
-
 features_list = [
         {
             'name': _('keep-track-title-name'),
