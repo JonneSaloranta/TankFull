@@ -28,4 +28,5 @@ urlpatterns = [
     path('', include(('refuel.urls', 'refuel'), namespace='refuel')),
     path('', include('custom_login.urls')),
     path('__debug__/', include(debug_toolbar.urls)),
+    path('tokenauth/', include(('token_auth.urls', 'token_auth'), namespace='token_auth')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

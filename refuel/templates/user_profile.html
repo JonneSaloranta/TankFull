@@ -2,11 +2,18 @@
 
 {% block content %}
 <div class="container text-center">
-    <h2>{{user.name}}
-        {% if user.is_superuser %}
-        <span class="badge bg-warning-subtle border border-warning-subtle text-warning-emphasis rounded-pill">Admin</span>
-        {% endif %}
-    </h2>
+    <div class="row">
+        <div class="col-md-6">
+            <h1>{{user.name}} {{user.lastname}}</h1>
+        </div>
+        <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-text">Auth Token</span>
+                <input type="text" class="form-control" id="authToken" value="{{ token }}" readonly onclick="toggleBlur(this)" style="filter: blur(4px); cursor: pointer;">
+                <button class="btn btn-outline-secondary" type="button" onclick="copyToClipboard()">Copy</button>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="container">
     <div class="row">
@@ -30,4 +37,22 @@
         {% endfor %}
     </div>
 </div>
+
+<script>
+    function toggleBlur(element) {
+        if (element.style.filter === 'blur(4px)') {
+            element.style.filter = '';
+        } else {
+            element.style.filter = 'blur(4px)';
+        }
+    }
+
+    function copyToClipboard() {
+        var authToken = document.getElementById("authToken");
+        authToken.select();
+        document.execCommand("copy");
+    }
+</script>
+
+
 {% endblock %}

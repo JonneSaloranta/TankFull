@@ -1,29 +1,28 @@
 {% load i18n %}
 <div class="container">
-
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        <a href="{%url 'refuel:index'%}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <span class="fs-4"><i class="bi bi-fuel-pump-fill"></i> Fuel Tracker</span>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 mb-4 border-bottom">
+        <a href="{% url 'refuel:index' %}" class="navbar-brand d-flex align-items-center">
+            <i class="bi bi-fuel-pump-fill"></i> Fuel Tracker
         </a>
-
-        <ul class="nav nav-pills">
-            <li class="nav-item"><a href="{%url 'refuel:index'%}" class="nav-link">{% trans "homepage-text"%}</a></li>
-            {%if user.is_authenticated%}
-            {% if user.is_superuser %}
-            <li class="nav-item"><a href="/admin" class="nav-link">{% trans "admin-dashboard-text"%} <i class="bi bi-speedometer"></i></a></li>
-            {% endif %}
-
-            {# path('user/<int:user_id>/', views.user_profile, name='user_profile'), #}
-            <li class="nav-item"><a href="{% url 'refuel:user_profile' user_id=request.user.id %}" class="nav-link">{{request.user.name}} <i class="bi bi-person-circle"></i></a></li>
-            {%endif%}
-            <li class="nav-item"><a href="{%url 'refuel:features'%}" class="nav-link">{% trans "features-text"%}</a></li>
-            {%if not user.is_authenticated%}
-            <li class="nav-item"><a href="{%url 'login'%}" class="nav-link">{% trans "login-text"%}</a></li>
-            {%else%}
-            <li class="nav-item"><a href="{%url 'logout'%}" class="nav-link">{% trans "logout-text" %}</a></li>
-            {%endif%}
-        </ul>
-    </header>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="{% trans 'Toggle navigation' %}">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a href="{% url 'refuel:index' %}" class="nav-link fs-5">{% trans "homepage-text" %}</a></li>
+                {% if user.is_authenticated %}
+                {% if user.is_superuser %}
+                <li class="nav-item"><a href="/admin" class="nav-link fs-5">{% trans "admin-dashboard-text" %} <i class="bi bi-speedometer"></i></a></li>
+                {% endif %}
+                <li class="nav-item"><a href="{% url 'refuel:user_profile' user_id=user.id %}" class="nav-link fs-5">{{ user.name }} {{ user.lastname|slice:":1" }}. <i class="bi bi-person-circle"></i></a></li>
+                {% endif %}
+                <li class="nav-item"><a href="{% url 'refuel:features' %}" class="nav-link fs-5">{% trans "features-text" %}</a></li>
+                {% if not user.is_authenticated %}
+                <li class="nav-item"><a href="{% url 'login' %}" class="nav-link fs-5">{% trans "login-text" %}</a></li>
+                {% else %}
+                <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link fs-5">{% trans "logout-text" %}</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
 </div>
-
-{% include "notifications.html"%}

@@ -3,3 +3,4 @@ django-admin
 python-decouple
 django-debug-toolbar
 django-redis
+djangorestframework
