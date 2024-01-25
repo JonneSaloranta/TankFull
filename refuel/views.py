@@ -33,33 +33,33 @@ stats = [
 
 features_list = [
         {
-            'name': _('Keep track'),
-            'description': _('Keep track of your refuels and see how much you have spent on fuel.'),
+            'name': _('keep-track-title-name'),
+            'description': _('keep-track-description-text'),
             'icon': 'bi bi-database'
         },
         {
-            'name': _('Statistics'),
-            'description': _('See your refuel statistics in a graph.'),
+            'name': _('statistics-title-name'),
+            'description': _('statistics-description-text'),
             'icon': 'bi bi-graph-up'
         },
         {
-            'name': _('Compare'),
-            'description': _('Compare your refuels to others.'),
+            'name': _('compare-title-name'),
+            'description': _('compare-description-text'),
             'icon': 'bi bi-people'
         },
         {
-            'name': _('Share'),
-            'description': _('Share your refuels with others.'),
+            'name': _('share-title-name'),
+            'description': _('share-description-text'),
             'icon': 'bi bi-share'
         },
         {
-            'name': _('Export'),
-            'description': _('Export your refuels to a file.'),
+            'name': _('export-title-name'),
+            'description': _('export-description-text'),
             'icon': 'bi bi-file-earmark-arrow-down'
         },
         {
-            'name': _('Import'),
-            'description': _('Import your refuels from a file.'),
+            'name': _('import-title-name'),
+            'description': _('import-description-text'),
             'icon': 'bi bi-file-earmark-arrow-up'
         },
     ]
