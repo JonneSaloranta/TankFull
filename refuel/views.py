@@ -9,6 +9,17 @@ from django.core.mail import EmailMessage, get_connection
 from django.views.decorators.cache import cache_page
 
 from decouple import config
+from rest_framework import status
+
+from rest_framework.decorators import api_view
+from django.shortcuts import get_object_or_404
+from rest_framework.authentication import SessionAuthentication,TokenAuthentication
+from rest_framework.decorators import authentication_classes, permission_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+
+from token_auth.token_serializer import UserSerializer
+from .serializers import VehicleSerializer  # Import the VehicleSerializer
 
 
 stats = [
@@ -62,6 +73,11 @@ features_list = [
             'description': _('import-description-text'),
             'icon': 'bi bi-file-earmark-arrow-up'
         },
+        {
+            'name': _('token-auth-title-name'),
+            'description': _('token-auth-text'),
+            'icon': 'bi bi-emoji-sunglasses-fill'
+        },
     ]
 
 # @cache_page(60 * 15)
@@ -82,10 +98,17 @@ def features(request):
 
 from email_login.models import User
 from .models import Vehicle, Refuel
+from django.contrib.auth import get_user_model
+from django.shortcuts import get_object_or_404
+from rest_framework.authtoken.models import Token
 
 @login_required()
 def user_profile(request, user_id):
+    if request.user.id != user_id:
+        return redirect('refuel:index')
+
     user = User.objects.filter(id=user_id).first()
+    token = Token.objects.filter(user=user).first()
     vehicles = Vehicle.objects.filter(user=user)
     refuels = Refuel.objects.all().order_by('-id')
 
@@ -93,6 +116,16 @@ def user_profile(request, user_id):
         'user': user,
         'vehicles': vehicles,
         'refuels': refuels,
+        'token': token,
     }
 
     return render(request, 'user_profile.html', context=context)
+
+@api_view(['GET'])
+@authentication_classes([SessionAuthentication, TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def user_vehicles(request, user_id):
+    user = get_object_or_404(get_user_model(), id=user_id)
+    vehicles = Vehicle.objects.filter(user=user)
+    serialized_vehicles = VehicleSerializer(vehicles, many=True).data
+    return Response({'user': UserSerializer(instance=user).data, 'vehicles': serialized_vehicles}, status=status.HTTP_200_OK)
