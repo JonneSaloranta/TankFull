@@ -63,7 +63,6 @@ features_list = [
 def index(request):
     context = {
         'features': features_list,
-        'stats': stats
     }
 
     return render(request, 'index.html' , context=context)
