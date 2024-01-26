@@ -5,5 +5,4 @@ __pycache__
 *.sqlite3
 .vscode
 staticfiles
-locale/*/LC_MESSAGES/*
 *.http
