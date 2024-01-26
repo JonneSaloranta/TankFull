@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-26 15:33+0200\n"
+"POT-Creation-Date: 2024-01-26 19:40+0200\n"
 "PO-Revision-Date: 2024-01-26 13:58+0000\n"
 "Last-Translator: Weblate Admin <weblate.admin@example.com>\n"
 "Language-Team: English <http://weblate.example.com/projects/refuel-project/"
@@ -109,58 +109,62 @@ msgstr "Features"
 msgid "logout-text"
 msgstr "Logout"
 
-#: .\refuel\views.py:36
+#: .\refuel\templates\navbar.html:31
+msgid "Language"
+msgstr ""
+
+#: .\refuel\views.py:38
 msgid "keep-track-title-name"
 msgstr "Keep track"
 
-#: .\refuel\views.py:37
+#: .\refuel\views.py:39
 msgid "keep-track-description-text"
 msgstr "Keep track of your refuels and see how much you have spent on fuel."
 
-#: .\refuel\views.py:41
+#: .\refuel\views.py:43
 msgid "statistics-title-name"
 msgstr "Statistics"
 
-#: .\refuel\views.py:42
+#: .\refuel\views.py:44
 msgid "statistics-description-text"
 msgstr "See your fueling statistics in a graph."
 
-#: .\refuel\views.py:46
+#: .\refuel\views.py:48
 msgid "compare-title-name"
 msgstr "Compare"
 
-#: .\refuel\views.py:47
+#: .\refuel\views.py:49
 msgid "compare-description-text"
 msgstr "Compare your refuels to others."
 
-#: .\refuel\views.py:51
+#: .\refuel\views.py:53
 msgid "share-title-name"
 msgstr "Share"
 
-#: .\refuel\views.py:52
+#: .\refuel\views.py:54
 msgid "share-description-text"
 msgstr "Share your refuels with others."
 
-#: .\refuel\views.py:56
+#: .\refuel\views.py:58
 msgid "export-title-name"
 msgstr "Export"
 
-#: .\refuel\views.py:57
+#: .\refuel\views.py:59
 msgid "export-description-text"
 msgstr "Export your refuels to a file."
 
-#: .\refuel\views.py:61
+#: .\refuel\views.py:63
 msgid "import-title-name"
 msgstr "Import"
 
-#: .\refuel\views.py:62
+#: .\refuel\views.py:64
 msgid "import-description-text"
 msgstr "Import your refuels from a file."
 
-#: .\refuel\views.py:66
+#: .\refuel\views.py:68
 msgid "token-auth-title-name"
 msgstr "Token Authentication"
 
-#: .\refuel\views.py:67
+#: .\refuel\views.py:69
 msgid "token-auth-text"
 msgstr "Now with token authentication to use in 3rd-party software"
