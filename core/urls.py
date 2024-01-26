@@ -25,6 +25,7 @@ import debug_toolbar
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('i18n/', include('django.conf.urls.i18n')),
     path('', include(('refuel.urls', 'refuel'), namespace='refuel')),
     path('', include('custom_login.urls')),
     path('__debug__/', include(debug_toolbar.urls)),
