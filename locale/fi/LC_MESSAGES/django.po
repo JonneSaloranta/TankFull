@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-25 12:46+0200\n"
-"PO-Revision-Date: 2024-01-25 20:35+0000\n"
+"PO-Revision-Date: 2024-01-26 12:45+0000\n"
 "Last-Translator: Weblate Admin <weblate.admin@example.com>\n"
 "Language-Team: Finnish <http://weblate.example.com/projects/refuel-project/"
 "development/fi/>\n"
@@ -63,7 +63,7 @@ msgstr "Tarvitsetko uuden aktivointi linkin?"
 
 #: .\custom_login\templates\login.html:53
 msgid "resend-email-activation-button"
-msgstr "Aktiivinen"
+msgstr "Aktivoi"
 
 #: .\custom_login\templates\login.html:57
 msgid "need-an-account-question-text"
