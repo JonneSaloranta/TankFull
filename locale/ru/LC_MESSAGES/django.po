@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-25 12:46+0200\n"
+"POT-Creation-Date: 2024-01-26 15:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,20 +20,24 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\core\settings.py:167
+#: .\core\settings.py:169
 msgid "English"
 msgstr ""
 
-#: .\core\settings.py:168
+#: .\core\settings.py:170
 msgid "Finnish"
 msgstr ""
 
-#: .\core\settings.py:169
+#: .\core\settings.py:171
 msgid "Swedish"
 msgstr ""
 
-#: .\core\settings.py:170
+#: .\core\settings.py:172
 msgid "Russian"
+msgstr ""
+
+#: .\custom_login\templates\login.html:11
+msgid "login-page-document-title"
 msgstr ""
 
 #: .\custom_login\templates\login.html:30
@@ -80,7 +84,7 @@ msgstr ""
 msgid "welcome-text"
 msgstr ""
 
-#: .\refuel\templates\index.html:11 .\refuel\templates\navbar.html:10
+#: .\refuel\templates\index.html:11 .\refuel\templates\navbar.html:12
 msgid "homepage-text"
 msgstr ""
 
@@ -88,7 +92,11 @@ msgstr ""
 msgid "homepage-welcome-text-and-introduction"
 msgstr ""
 
-#: .\refuel\templates\navbar.html:13
+#: .\refuel\templates\navbar.html:7
+msgid "Toggle navigation"
+msgstr ""
+
+#: .\refuel\templates\navbar.html:15
 msgid "admin-dashboard-text"
 msgstr ""
 
@@ -146,4 +154,12 @@ msgstr ""
 
 #: .\refuel\views.py:62
 msgid "import-description-text"
+msgstr ""
+
+#: .\refuel\views.py:66
+msgid "token-auth-title-name"
+msgstr ""
+
+#: .\refuel\views.py:67
+msgid "token-auth-text"
 msgstr ""
