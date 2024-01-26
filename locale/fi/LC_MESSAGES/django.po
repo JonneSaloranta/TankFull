@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-26 15:33+0200\n"
-"PO-Revision-Date: 2024-01-26 12:45+0000\n"
+"PO-Revision-Date: 2024-01-26 13:58+0000\n"
 "Last-Translator: Weblate Admin <weblate.admin@example.com>\n"
 "Language-Team: Finnish <http://weblate.example.com/projects/refuel-project/"
 "development/fi/>\n"
@@ -37,7 +37,7 @@ msgstr "Venäjä"
 
 #: .\custom_login\templates\login.html:11
 msgid "login-page-document-title"
-msgstr ""
+msgstr "Kirjaudu sisään"
 
 #: .\custom_login\templates\login.html:30
 msgid "please-login-in"
@@ -60,8 +60,6 @@ msgid "login-text"
 msgstr "Kirjaudu"
 
 #: .\custom_login\templates\login.html:52
-#, fuzzy
-#| msgid "Need a new account activation link?"
 msgid "need-new-account-activation-link-question-text"
 msgstr "Tarvitsetko uuden aktivointi linkin?"
 
@@ -74,8 +72,6 @@ msgid "need-an-account-question-text"
 msgstr "Tarvitsetko käyttäjää?"
 
 #: .\custom_login\templates\login.html:58
-#, fuzzy
-#| msgid "Register"
 msgid "register-text"
 msgstr "Rekisteröidy"
 
@@ -84,8 +80,6 @@ msgid "Features"
 msgstr "Ominaisuudet"
 
 #: .\refuel\templates\index.html:8
-#, fuzzy
-#| msgid "Welcome"
 msgid "welcome-text"
 msgstr "Tervetuloa"
 
@@ -101,15 +95,13 @@ msgstr ""
 
 #: .\refuel\templates\navbar.html:7
 msgid "Toggle navigation"
-msgstr ""
+msgstr "Vaihda navigointia"
 
 #: .\refuel\templates\navbar.html:15
 msgid "admin-dashboard-text"
 msgstr "Kojelauta"
 
 #: .\refuel\templates\navbar.html:19
-#, fuzzy
-#| msgid "Features"
 msgid "features-text"
 msgstr "Ominaisuudet"
 
@@ -168,16 +160,13 @@ msgid "import-description-text"
 msgstr "Tuo tankkauksesi tiedostosta."
 
 #: .\refuel\views.py:66
-#, fuzzy
-#| msgid "keep-track-title-name"
 msgid "token-auth-title-name"
-msgstr "Pidä kirjaa"
+msgstr "Autentikointitunnus"
 
 #: .\refuel\views.py:67
-#, fuzzy
-#| msgid "logout-text"
 msgid "token-auth-text"
-msgstr "Kirjaudu ulos"
+msgstr ""
+"Nyt voit käyttää autentikointitunnusta kolmannen osapuolen ohjelmistossa"
 
 #~ msgid "Email address"
 #~ msgstr "Sähköpostiosoite"
