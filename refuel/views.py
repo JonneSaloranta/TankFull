@@ -30,6 +30,8 @@ from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404
 from rest_framework.authtoken.models import Token
 from .forms import VehicleForm
+import json
+from random import randint, uniform
 
 features_list = [
         {
@@ -83,6 +85,24 @@ def features(request):
     }
 
     return render(request, 'features.html', context=context)
+
+@login_required()
+def charts(request):
+    # TODO: Make this chart work with real data
+    data = [uniform(1.6, 2.4) for i in range(12)]
+    chart_title = 'Fuel price average per month'
+    data_labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+    # Serialize data and data_labels to JSON
+    data_json = json.dumps(data)
+    data_labels_json = json.dumps(data_labels)
+
+    context = {
+        'data_json': data_json,
+        'chart_title': chart_title,
+        'data_labels_json': data_labels_json,
+    }
+    return render(request, 'charts.html', context=context)
 
 @login_required()
 def user_profile(request, user_id):

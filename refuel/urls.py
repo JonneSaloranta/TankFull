@@ -9,6 +9,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('features/', views.features, name='features'),
     path('user/<int:user_id>/', views.user_profile, name='user_profile'),
+    path('charts/', views.charts, name='charts'),
     ## API
     path('user/<int:user_id>/vehicles/', views.user_vehicles, name='user_vehicles'),
     path('user/<int:user_id>/details/', views.user_details, name='user_details'),
