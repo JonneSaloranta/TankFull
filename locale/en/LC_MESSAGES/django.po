@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-26 19:40+0200\n"
-"PO-Revision-Date: 2024-01-26 13:58+0000\n"
+"PO-Revision-Date: 2024-01-26 17:55+0000\n"
 "Last-Translator: Weblate Admin <weblate.admin@example.com>\n"
 "Language-Team: English <http://weblate.example.com/projects/refuel-project/"
-"development/en/>\n"
+"dev-1/en/>\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -111,7 +111,7 @@ msgstr "Logout"
 
 #: .\refuel\templates\navbar.html:31
 msgid "Language"
-msgstr ""
+msgstr "Language"
 
 #: .\refuel\views.py:38
 msgid "keep-track-title-name"
