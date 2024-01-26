@@ -2,10 +2,16 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-26 19:40+0200\n"
+"PO-Revision-Date: 2024-01-26 17:55+0000\n"
+"Last-Translator: Weblate Admin <weblate.admin@example.com>\n"
+"Language-Team: German <http://weblate.example.com/projects/refuel-project/"
+"dev-1/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.3.1\n"
 
 #: .\core\settings.py:169
 msgid "English"
@@ -97,7 +103,7 @@ msgstr ""
 
 #: .\refuel\templates\navbar.html:31
 msgid "Language"
-msgstr ""
+msgstr "Sprache"
 
 #: .\refuel\views.py:38
 msgid "keep-track-title-name"
