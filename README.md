@@ -1,8 +1,14 @@
-# Refuel Data Tracker
+# TankFull Tracker
+
+## Disclaimer
+
+Please note that TankFull is currently in development and not production-ready. It may contain bugs and incomplete features. Also future releases may break backwards compatibility. Use at your own risk.
 
 ## Description
 
-The Refuel Data Tracker is a tool designed to help users keep track of their refueling data. It is a simple and user-friendly application that allows users to input their refueling data, such as the date, the amount of fuel, and the cost of fuel. The application then calculates the fuel efficiency and displays it to the user. This information can be useful for those who want to monitor their fuel consumption and make adjustments to their driving habits to save money and reduce their carbon footprint. The Refuel Data Tracker is a great tool for anyone who wants to keep track of their fuel consumption and make informed decisions about their driving habits.
+The TankFull Tracker is a straightforward and easy-to-use application designed to help vehicle owners keep track of their fuelings, charging, and distance driven. It's a practical tool for those who want to maintain a detailed record of their vehicle's energy use and travel distance. Users can log information like the date of fueling or charging, the amount of energy used, and the cost, along with the distance covered.
+
+This application is especially useful for individuals looking to understand their vehicle's energy consumption patterns better. The TankFull Tracker offers a simple way to monitor and analyze fuel or electricity usage against the distance traveled, helping users make more informed decisions about their driving habits. While it may not have all the bells and whistles of more complex applications, its straightforward approach makes it accessible for anyone interested in tracking and improving their vehicle's energy efficiency.
 
 ## Table of Contents
 
@@ -18,28 +24,32 @@ The Refuel Data Tracker is a tool designed to help users keep track of their ref
 Create a .env file in the root directory and add the following environment variables:
 
 ```bash
-SECRET_KEY=your_secret_key
-DEBUG=True or False
-ALLOWED_HOSTS='localhost', '*', '123.45.67.89' # example
+SECRET_KEY=TankFull-changeme-u)(d4c7&icgd1wr_i5csk8@p8i56dsx9d@q14jyn&jyj8jj&l*
+DEBUG=True
+ALLOWED_HOSTS='*'
+RESEND_API_KEY=changeme # api key for activating accounts
+RESEND_FROM_EMAIL='info@example.com'
+INTERNAL_IPS=127.0.0.1,localhost,0.0.0.0
+REDIS_PASSWORD=changeme # redis cache password
 ```
 
 ### Docker
 
-To install the Refuel Data Tracker using Docker, follow these steps:
+To install the TankFull Tracker using Docker, follow these steps:
 
 1. Clone the repository to your local machine.
 
-2. Install [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/).
+2. cd into the root directory.
 
-3. Run the application using the following command:
+3. Run the following command for redis cache:
 
     ```bash
-    docker-compose up
+    docker compose up
     ```
 
 ### Bare metal
 
-To install the Refuel Data Tracker, follow these steps:
+To install the TankFull Tracker, follow these steps:
 
 1. Clone the repository to your local machine.
 
@@ -59,25 +69,7 @@ To install the Refuel Data Tracker, follow these steps:
 
 ## Usage
 
-To use the Refuel Data Tracker, follow these steps:
-
-1. Navigate to the Refuel Data Tracker website.
-
-2. Click on the "Sign Up" button to create an account.
-
-3. Enter your information and click on the "Sign Up" button.
-
-4. Click on the "Log In" button to log in to your account.
-
-5. Enter your information and click on the "Log In" button.
-
-6. Click on the "Add Data" button to add your refueling data.
-
-7. Enter your refueling data and click on the "Add Data" button.
-
-8. Click on the "View Data" button to view your refueling data.
-
-9. Click on the "Log Out" button to log out of your account.
+WIP
 
 ## License
 
@@ -85,7 +77,7 @@ This project is licensed under the MIT license.
 
 ## Contribution
 
-To contribute to the Refuel Data Tracker, follow these steps:
+To contribute to the TankFull Tracker, follow these steps:
 
 1. Fork this repository.
 
@@ -105,4 +97,4 @@ WIP
 
 ## Questions
 
-If you have any questions, comments, or concerns about the Refuel Data Tracker, you can post an issue on this repository.
+If you have any questions, comments, or concerns about the TankFull Tracker, you can post an issue on this repository.
