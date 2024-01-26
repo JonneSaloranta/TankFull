@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-26 19:40+0200\n"
-"PO-Revision-Date: 2024-01-26 17:55+0000\n"
+"PO-Revision-Date: 2024-01-26 17:59+0000\n"
 "Last-Translator: Weblate Admin <weblate.admin@example.com>\n"
 "Language-Team: Swedish <http://weblate.example.com/projects/refuel-project/"
 "dev-1/sv/>\n"
@@ -65,7 +65,7 @@ msgstr ""
 
 #: .\custom_login\templates\login.html:53
 msgid "resend-email-activation-button"
-msgstr "Språk"
+msgstr ""
 
 #: .\custom_login\templates\login.html:57
 msgid "need-an-account-question-text"
@@ -109,7 +109,7 @@ msgstr ""
 
 #: .\refuel\templates\navbar.html:31
 msgid "Language"
-msgstr ""
+msgstr "Språk"
 
 #: .\refuel\views.py:38
 msgid "keep-track-title-name"
