@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-26 15:33+0200\n"
-"PO-Revision-Date: 2024-01-25 11:24+0000\n"
+"PO-Revision-Date: 2024-01-26 13:58+0000\n"
 "Last-Translator: Weblate Admin <weblate.admin@example.com>\n"
 "Language-Team: English <http://weblate.example.com/projects/refuel-project/"
 "development/en/>\n"
@@ -37,7 +37,7 @@ msgstr "Russian"
 
 #: .\custom_login\templates\login.html:11
 msgid "login-page-document-title"
-msgstr ""
+msgstr "Login"
 
 #: .\custom_login\templates\login.html:30
 msgid "please-login-in"
@@ -95,7 +95,7 @@ msgstr ""
 
 #: .\refuel\templates\navbar.html:7
 msgid "Toggle navigation"
-msgstr ""
+msgstr "Toggle navigation"
 
 #: .\refuel\templates\navbar.html:15
 msgid "admin-dashboard-text"
@@ -123,7 +123,7 @@ msgstr "Statistics"
 
 #: .\refuel\views.py:42
 msgid "statistics-description-text"
-msgstr "See your refuel statistics in a graph."
+msgstr "See your fueling statistics in a graph."
 
 #: .\refuel\views.py:46
 msgid "compare-title-name"
@@ -158,13 +158,9 @@ msgid "import-description-text"
 msgstr "Import your refuels from a file."
 
 #: .\refuel\views.py:66
-#, fuzzy
-#| msgid "keep-track-title-name"
 msgid "token-auth-title-name"
-msgstr "Keep track"
+msgstr "Token Authentication"
 
 #: .\refuel\views.py:67
-#, fuzzy
-#| msgid "logout-text"
 msgid "token-auth-text"
-msgstr "Logout"
+msgstr "Now with token authentication to use in 3rd-party software"
