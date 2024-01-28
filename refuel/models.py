@@ -23,12 +23,12 @@ class Vehicle(models.Model):
     
 
 class Refuel(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
-    date = models.DateField(null=True, blank=True)
+    date = models.DateField(unique=False, null=True, blank=True)
     odometer = models.IntegerField()
     fuel_amount = models.DecimalField(max_digits=6, decimal_places=2)
-    cost = models.DecimalField(max_digits=6, decimal_places=3)
+    cost = models.DecimalField(max_digits=6, decimal_places=2)
+    cost_per_liters = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
 
     def __str__(self):
         return f'{self.vehicle} - {self.date}'
@@ -36,10 +36,11 @@ class Refuel(models.Model):
     def save(self, *args, **kwargs):
         if not self.date:
             self.date = timezone.now()
-        if not self.user:
-            self.user = self.vehicle.user
+        if self.fuel_amount > 0 and not self.cost_per_liters:
+            self.cost_per_liters = self.cost / self.fuel_amount
         self.vehicle.save()
         super(Refuel, self).save(*args, **kwargs)
+
 
     def delete(self, *args, **kwargs):
         self.vehicle.save()
@@ -47,3 +48,22 @@ class Refuel(models.Model):
     
     class Meta:
         ordering = ['-date']
+
+
+class VehicleImage(models.Model):
+    vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='vehicle_images')
+
+    def __str__(self):
+        return f'{self.vehicle} - {self.image}'
+    
+    def save(self, *args, **kwargs):
+        self.vehicle.save()
+        super(VehicleImage, self).save(*args, **kwargs)
+    
+    def delete(self, *args, **kwargs):
+        self.vehicle.save()
+        super(VehicleImage, self).delete(*args, **kwargs)
+    
+    class Meta:
+        ordering = ['-id']
