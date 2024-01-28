@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 
 {% load i18n %}
+{% load custom_filters %}
 
 {% block content %}
 <div class="container text-center">
     {%if user.is_authenticated%}
     <h1>{% trans 'welcome-text' %} {{request.user.name|capfirst}}</h1>
-
     {%endif%}
     <h1>{% trans "homepage-text" %}</h1>
+    <h2>Total distance travelled: {{0|total_distance_traveled}}km.</h2>
     <p class="lead">{% trans 'homepage-welcome-text-and-introduction' %}</p>
 </div>
 
