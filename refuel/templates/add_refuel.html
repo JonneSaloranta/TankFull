@@ -1,0 +1,60 @@
+{% load custom_filters %}
+{% load i18n %}
+{% block content %}
+
+<div class="container text-center justify-content-center">
+    <div class="row my-5 justify-content-center">
+        <div class="col-sm-4 mb-3">
+            <form action="{% url 'refuel:vehicle_details' vehicle.id %}" method="POST">
+                {% csrf_token %}
+
+                <!-- Vehicle Dropdown -->
+                <div class="form-floating my-2">
+                    <select class="form-control" name="vehicle" id="vehicle" required>
+                        <!-- Replace these options with your actual vehicle options -->
+
+                        {% for vhcl in user_vehicles %}
+                        <option value="{{ vhcl.id }}" {% if vhcl.id == vehicle.id %} selected{% endif %}>
+                            {{ vhcl }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                    <label for="vehicle">{% trans "Vehicle" %}</label>
+                </div>
+
+                <!-- Date Field -->
+                <div class="form-floating my-2">
+                    <input type="date" class="form-control" name="date" id="date" placeholder="{% trans 'Date' %}" required>
+                    <label for="date">{% trans "Date" %}</label>
+                </div>
+
+                <!-- Rest of the form remains unchanged -->
+                <div class="form-floating my-2">
+                    <input type="text" class="form-control" name="odometer" id="odometer" placeholder="{% trans 'Odometer' %}" required {% if last_refuel %} value="{{last_refuel.odometer}}" {% endif %}>
+
+                    <label for="odometer">{% trans "Odometer" %}</label>
+                </div>
+
+                <div class="form-floating my-2">
+                    <input type="text" class="form-control" name="fuel_amount" id="fuel_amount" placeholder="{% trans 'Fuel amount' %}" required {% if last_refuel %} value="{{last_refuel.fuel_amount|format_decimal}}" {% endif %}>
+                    <label for="fuel_amount">{% trans "Fuel amount" %}</label>
+                </div>
+
+                <div class="form-floating my-2">
+                    <input type="text" class="form-control" name="cost" id="cost" placeholder="{% trans 'Cost' %}" required{% if last_refuel %} value="{{last_refuel.cost|format_decimal}}" {% endif %}>
+                    <label for="cost">{% trans "Cost" %}</label>
+                </div>
+
+                <div class="form-floating my-2" hidden>
+                    <input type="text" class="form-control" name="cost_per_liters" id="cost_per_liters" placeholder="{% trans 'Cost per liter' %}" value="">
+                    <label for="cost_per_liters">{% trans "Cost per liter" %}</label>
+                </div>
+
+                <input class="btn btn-primary w-100 py-2" type="submit" value="{% trans 'Submit' %}">
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}
