@@ -5,8 +5,9 @@ from django.utils.translation import gettext as _
 import os
 from django.conf import settings
 from django.http import JsonResponse
-from django.core.mail import EmailMessage, get_connection
+from django.core.mail import EmailMessage, get_connection, message
 from django.views.decorators.cache import cache_page
+from django.contrib import messages
 
 from decouple import config
 from rest_framework import status
@@ -21,8 +22,8 @@ from rest_framework.response import Response
 from token_auth.token_serializer import UserSerializer
 from .serializers import VehicleSerializer, RefuelSerializer, FuelTypeSerializer
 
-from .models import Vehicle, Refuel, FuelType
-from .forms import VehicleForm, RefuelForm, FuelTypeForm
+from .models import Vehicle, Refuel, FuelType, VehicleImage
+from .forms import VehicleForm, RefuelForm, FuelTypeForm, VehicleImageForm
 
 from email_login.models import User
 from .models import Vehicle, Refuel
@@ -86,12 +87,16 @@ def features(request):
 
     return render(request, 'features.html', context=context)
 
+
+def map(request):
+    return render(request, 'map.html')
+
 @login_required()
 def charts(request):
     # TODO: Make this chart work with real data
     data = [uniform(1.6, 2.4) for i in range(12)]
-    chart_title = 'Fuel price average per month'
-    data_labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    chart_title = _('Fuel price average per month')
+    data_labels = [_('January'), _('February'), _('March'), _('April'), _('May'), _('June'), _('July'), _('August'), _('September'), _('October'), _('November'), _('December')]
 
     # Serialize data and data_labels to JSON
     data_json = json.dumps(data)
@@ -111,150 +116,126 @@ def user_profile(request, user_id):
 
     user = User.objects.filter(id=user_id).first()
     token = Token.objects.filter(user=user).first()
-    vehicles = Vehicle.objects.filter(user=user)
+    user_vehicles = Vehicle.objects.filter(user=user)
     refuels = Refuel.objects.all().order_by('-id')
+    vehicle_images = VehicleImage.objects.all().order_by('-id')
 
     context = {
         'user': user,
-        'vehicles': vehicles,
+        'user_vehicles': user_vehicles,
         'refuels': refuels,
         'token': token,
+        'vehicle_images': vehicle_images,
     }
 
     return render(request, 'user_profile.html', context=context)
 
-# TODO: Add authentication to API views and make sure they work
 
-@api_view(['GET'])
-@authentication_classes([SessionAuthentication, TokenAuthentication])
-@permission_classes([IsAuthenticated])
-def user_vehicles(request, user_id):
-    user = get_object_or_404(get_user_model(), id=user_id)
-    vehicles = Vehicle.objects.filter(user=user)
-    serialized_vehicles = VehicleSerializer(vehicles, many=True).data
-    return Response({'user': UserSerializer(instance=user).data, 'vehicles': serialized_vehicles}, status=status.HTTP_200_OK)
-
-@api_view(['POST'])
-@authentication_classes([SessionAuthentication, TokenAuthentication])
-@permission_classes([IsAuthenticated])
-def create_vehicle(request):
-    vehicleform = VehicleForm(request.data)
-
-    if vehicleform.is_valid():
-        # user = models.ForeignKey(User, on_delete=models.CASCADE)
-        # vehicle_name = models.CharField(max_length=100)
-        # make = models.CharField(max_length=100, null=True, blank=True)
-        # model = models.CharField(max_length=100, null=True, blank=True)
-        # year = models.IntegerField(null=True, blank=True)
-        # fuel_type = models.ForeignKey(FuelType, on_delete=models.SET_NULL, null=True, blank=True)
-
-        user = get_object_or_404(get_user_model(), id=request.data.get('user_id'))
-        vehicle_name = request.data.get('vehicle_name')
-        make = request.data.get('make')
-        model = request.data.get('model')
-        year = request.data.get('year')
-        fuel_type = get_object_or_404(FuelType, fuel_type=request.data.get('fuel_type'))
-
-        vehicle = Vehicle.objects.create(user=user, vehicle_name=vehicle_name, make=make, model=model, year=year, fuel_type=fuel_type)
-        serialized_vehicle = VehicleSerializer(vehicle).data
-        return Response({'user': UserSerializer(instance=user).data, 'vehicle': serialized_vehicle}, status=status.HTTP_200_OK)        
-    else:
-        return Response({'message': 'Invalid vehicle form'}, status=status.HTTP_400_BAD_REQUEST)
-
-@api_view(['POST'])
-@authentication_classes([SessionAuthentication, TokenAuthentication])
-@permission_classes([IsAuthenticated])
-def delete_vehicle(request):
-    vehicle = get_object_or_404(Vehicle, id=request.data.get('vehicle_id'))
-    vehicle.delete()
-    return Response({'message': 'Vehicle deleted successfully'}, status=status.HTTP_200_OK)
-
-@api_view(['POST'])
-@authentication_classes([SessionAuthentication, TokenAuthentication])
-@permission_classes([IsAuthenticated])
-def create_refuel(request):
-    user = get_object_or_404(get_user_model(), id=request.data.get('user_id'))
-    vehicle = get_object_or_404(Vehicle, id=request.data.get('vehicle_id'))
-    refuel = Refuel.objects.create(user=user, vehicle=vehicle, odometer=request.data.get('odometer'), fuel_amount=request.data.get('fuel_amount'), cost=request.data.get('cost'))
-    serialized_refuel = RefuelSerializer(refuel).data
-    return Response({'user': UserSerializer(instance=user).data, 'vehicle': VehicleSerializer(instance=vehicle).data, 'refuel': serialized_refuel}, status=status.HTTP_200_OK)
-
-@api_view(['POST'])
-@authentication_classes([SessionAuthentication, TokenAuthentication])
-@permission_classes([IsAuthenticated])
-def delete_refuel(request):
-    refuel = get_object_or_404(Refuel, id=request.data.get('refuel_id'))
-    refuel.delete()
-    return Response({'message': 'Refuel deleted successfully'}, status=status.HTTP_200_OK)
-
-@api_view(['POST'])
-@authentication_classes([SessionAuthentication, TokenAuthentication])
-@permission_classes([IsAuthenticated])
-def update_refuel(request):
-    refuel = get_object_or_404(Refuel, id=request.data.get('refuel_id'))
-    refuel.odometer = request.data.get('odometer')
-    refuel.fuel_amount = request.data.get('fuel_amount')
-    refuel.cost = request.data.get('cost')
-    refuel.save()
-    serialized_refuel = RefuelSerializer(refuel).data
-    return Response({'refuel': serialized_refuel}, status=status.HTTP_200_OK)
-
-@api_view(['POST'])
-@authentication_classes([SessionAuthentication, TokenAuthentication])
-@permission_classes([IsAuthenticated])
-def update_vehicle(request):
-    vehicle = get_object_or_404(Vehicle, id=request.data.get('vehicle_id'))
-    vehicle.vehicle_name = request.data.get('vehicle_name')
-    vehicle.save()
-    serialized_vehicle = VehicleSerializer(vehicle).data
-    return Response({'vehicle': serialized_vehicle}, status=status.HTTP_200_OK)
-
-@api_view(['GET'])
-@authentication_classes([SessionAuthentication, TokenAuthentication])
-@permission_classes([IsAuthenticated])
-def user_refuels(request, user_id):
-    user = get_object_or_404(get_user_model(), id=user_id)
-    refuels = Refuel.objects.filter(user=user)
-    serialized_refuels = RefuelSerializer(refuels, many=True).data
-    return Response({'user': UserSerializer(instance=user).data, 'refuels': serialized_refuels}, status=status.HTTP_200_OK)
-
-@api_view(['GET'])
-@authentication_classes([SessionAuthentication, TokenAuthentication])
-@permission_classes([IsAuthenticated])
-def vehicle_refuels(request, vehicle_id):
-    vehicle = get_object_or_404(Vehicle, id=vehicle_id)
-    refuels = Refuel.objects.filter(vehicle=vehicle)
-    serialized_refuels = RefuelSerializer(refuels, many=True).data
-    return Response({'vehicle': VehicleSerializer(instance=vehicle).data, 'refuels': serialized_refuels}, status=status.HTTP_200_OK)
-
-@api_view(['GET'])
-@authentication_classes([SessionAuthentication, TokenAuthentication])
-@permission_classes([IsAuthenticated])
-def refuel_details(request, refuel_id):
-    refuel = get_object_or_404(Refuel, id=refuel_id)
-    serialized_refuel = RefuelSerializer(refuel).data
-    return Response({'refuel': serialized_refuel}, status=status.HTTP_200_OK)
-
-@api_view(['GET'])
-@authentication_classes([SessionAuthentication, TokenAuthentication])
-@permission_classes([IsAuthenticated])
+@login_required()
 def vehicle_details(request, vehicle_id):
+
     vehicle = get_object_or_404(Vehicle, id=vehicle_id)
-    serialized_vehicle = VehicleSerializer(vehicle).data
-    return Response({'vehicle': serialized_vehicle}, status=status.HTTP_200_OK)
 
-@api_view(['GET'])
-@authentication_classes([SessionAuthentication, TokenAuthentication])
-@permission_classes([IsAuthenticated])
-def user_details(request, user_id):
-    user = get_object_or_404(get_user_model(), id=user_id)
-    serialized_user = UserSerializer(user).data
-    return Response({'user': serialized_user}, status=status.HTTP_200_OK)
+    if request.POST:
+        form = RefuelForm(request.POST)
+        if form.is_valid():
+            refuel = form.save(commit=False)
+            refuel.vehicle = get_object_or_404(Vehicle, id=vehicle_id)
+            refuel.save()
+            messages.success(request, _('Refuel added successfully'))
+            return redirect('refuel:vehicle_details', vehicle_id=vehicle_id)
+        else:
+            messages.error(request, _('Invalid refuel form'))
+            messages.error(request, form.errors)
+            return redirect('refuel:vehicle_details', vehicle_id=vehicle_id)
 
-@api_view(['GET'])
-@authentication_classes([SessionAuthentication, TokenAuthentication])
-@permission_classes([IsAuthenticated])
-def get_fuel_types(request):
-    fuel_types = FuelType.objects.all()
-    serialized_fuel_types = FuelTypeSerializer(fuel_types, many=True).data
-    return Response({'fuel_types': serialized_fuel_types}, status=status.HTTP_200_OK)
+    user_vehicles = Vehicle.objects.filter(user=request.user)
+
+    try:
+        last_refuel = Refuel.objects.filter(vehicle=vehicle).order_by('-id').first()
+    except Refuel.DoesNotExist:
+        last_refuel = None
+
+    form = RefuelForm()
+
+    # Retrieve refueling data related to this vehicle
+    refuels = Refuel.objects.filter(vehicle=vehicle).order_by('-id')
+
+    data = [uniform(1.6, 2.4) for i in range(12)]
+    chart_title = _('Fuel price average per month')
+    data_labels = [_('January'), _('February'), _('March'), _('April'), _('May'), _('June'), _('July'), _('August'), _('September'), _('October'), _('November'), _('December')]
+
+    # Serialize data and data_labels to JSON
+    data_json = json.dumps(data)
+    data_labels_json = json.dumps(data_labels)
+
+    avg_cost_per_liter = 0.0
+    try:
+        for refuel in refuels:
+            avg_cost_per_liter += refuel.cost / refuel.fuel_amount
+            
+        avg_cost_per_liter /= len(refuels)
+        ## limit to 3 decimal places
+        avg_cost_per_liter = round(avg_cost_per_liter, 2)
+    except ZeroDivisionError:
+        pass
+
+    avg_consumption = 0.0
+    previous_odometer = 0
+    try:
+        for i, refuel in enumerate(refuels):       
+            if i == 0:
+                previous_odometer = refuel.odometer
+                continue
+            avg_consumption += (previous_odometer - refuel.odometer) / refuel.fuel_amount
+            previous_odometer = refuel.odometer
+        avg_consumption /= len(refuels)
+        ## limit to 3 decimal places
+        avg_consumption = round(avg_consumption, 2)
+    except ZeroDivisionError:
+        pass
+
+    try:
+        driven_distance = refuels[0].odometer - refuels[len(refuels)-1].odometer
+    except IndexError:
+        driven_distance = 0
+
+    
+
+    # Prepare the context with vehicle and refuels data
+    context = {
+        'vehicle': vehicle,
+        'refuels': refuels,
+        'data_json': data_json,
+        'chart_title': chart_title,
+        'data_labels_json': data_labels_json,
+        'cost_per_liter': avg_cost_per_liter,
+        'driven_distance': driven_distance,
+        'avg_consumption': avg_consumption,
+        'form': form,
+        'user_vehicles': user_vehicles,
+        'last_refuel': last_refuel,
+    }
+
+    # Render the 'vehicle_details.html' template with the context data
+    return render(request, 'vehicle_details.html', context=context)
+
+
+@login_required()
+def image_upload_view(request, vehicle_id):
+    vehicle = get_object_or_404(Vehicle, id=vehicle_id)
+
+    if request.method == 'POST':
+        form = VehicleImageForm(request.POST, request.FILES, instance=vehicle)
+        if form.is_valid():
+            form.save()
+            messages.success(request, _('Vehicle image uploaded successfully'))
+            return redirect('refuel:vehicle_details', vehicle_id=vehicle_id)
+        else:
+            messages.error(request, _('Invalid vehicle image form'))
+            messages.error(request, form.errors)
+            return redirect('refuel:vehicle_details', vehicle_id=vehicle_id)
+    else:
+        form = VehicleImageForm()
+
+    return Response({'form': form}, status=status.HTTP_200_OK)
