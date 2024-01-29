@@ -18,11 +18,9 @@
                 <!-- Unsplash Image as Cover -->
                 {# <img src="https://source.unsplash.com/random/250x150/?car" class="card-img-top" alt="Vehicle Image" style="object-fit: cover; width: 100%; height: 150px;"> #}
 
-                {% for vehicle_image in vehicle_images %}
-                {% if vehicle_image.vehicle == vehicle %}
-                <img src="{{ vehicle_image.image.url }}" class="card-img-top" alt="Vehicle Image" style="object-fit: cover; width: 100%; height: 150px;">
+                {% if vehicle.image %}
+                <img src="{{ vehicle.image.url }}" class="card-img-top" alt="Vehicle Image" style="object-fit: cover; width: 100%; height: 150px;">
                 {% endif %}
-                {% endfor %}
 
                 <div class="card-body flex-grow">
                     <h5 class="card-title">{{ vehicle|default_if_none:"Name?" }}</h5>
