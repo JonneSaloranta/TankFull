@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% load custom_filters %}
+{% load i18n %}
+{% block content %}
+
+<div class="container text-center justify-content-center">
+    <div class="row my-5 justify-content-center">
+        <div class="col-sm-4 mb-3">
+            <form action="" method="POST">
+                {% csrf_token %}
+
+                <div class="form-floating my-2">
+                    {{ form.vehicle_name.errors }}
+                    {{ form.vehicle_name|add_class:"form-control" }}
+                    <label for="{{ form.vehicle_name.id_for_label }}">{{ form.vehicle_name.label }}</label>
+                </div>
+
+                <div class="form-floating my-2">
+                    {{ form.make.errors }}
+                    {{ form.make|add_class:"form-control" }}
+                    <label for="{{ form.make.id_for_label }}">{{ form.make.label }}</label>
+                </div>
+
+                <div class="form-floating my-2">
+                    {{ form.model.errors }}
+                    {{ form.model|add_class:"form-control" }}
+                    <label for="{{ form.model.id_for_label }}">{{ form.model.label }}</label>
+                </div>
+
+                <div class="form-floating my-2">
+                    {{ form.year.errors }}
+                    {{ form.year|add_class:"form-control" }}
+                    <label for="{{ form.year.id_for_label }}">{{ form.year.label }}</label>
+                </div>
+
+                <div class="form-floating my-2">
+                    <select class="form-control" name="fuel_type" id="fuel_type">
+                        <option value="">Select a fuel type</option>
+                        {% for fuel_type in fuel_types %}
+                        <option value="{{fuel_type.id}}">{{fuel_type.fuel_type}}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="fuel_type">{% trans "Fuel type" %}</label>
+                </div>
+
+                <input class="btn btn-primary w-100 py-2" type="submit" value="{% trans 'Submit' %}">
+            </form>
+
+
+        </div>
+    </div>
+
+</div>
+
+{% include "notifications.html" %}
+
+{% endblock content %}
