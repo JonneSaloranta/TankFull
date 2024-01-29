@@ -24,16 +24,17 @@ urlpatterns += [
 urlpatterns += [
     path('', views.index, name='index'),
     path('features/', views.features, name='features'),
-    path('charts/', views.charts, name='charts'),
-    path('map/', views.map, name='map'),
+    # path('charts/', views.charts, name='charts'),
+    # path('map/', views.map, name='map'),
 ]
 
 urlpatterns += []
 
 urlpatterns += [
     # path('vehicle/<int:vehicle_id>/', views.vehicle_details, name='vehicle_details'),
+    path('vehicle/create/', views.create_vehicle, name='create_vehicle'),
+    path('vehicle/delete/<int:vehicle_id>/', views.delete_vehicle, name='delete_vehicle'),
     path('vehicle/<int:vehicle_id>/details/', views.vehicle_details, name='vehicle_details'),
-    path('vehicle/<int:vehicle_id>/image_upload/', views.image_upload_view, name='image_upload'),
 ]
 
 urlpatterns += [
