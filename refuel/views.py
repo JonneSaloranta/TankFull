@@ -169,7 +169,7 @@ def vehicle_details(request, vehicle_id):
     data_json = json.dumps(data)
     data_labels_json = json.dumps(data_labels)
 
-    avg_cost_per_liter = 0.0
+    avg_cost_per_liter = 0
     try:
         for refuel in refuels:
             avg_cost_per_liter += refuel.cost / refuel.fuel_amount
@@ -180,7 +180,7 @@ def vehicle_details(request, vehicle_id):
     except ZeroDivisionError:
         pass
 
-    avg_consumption = 0.0
+    avg_consumption = 0
     previous_odometer = 0
     try:
         for i, refuel in enumerate(refuels):       
@@ -222,20 +222,34 @@ def vehicle_details(request, vehicle_id):
 
 
 @login_required()
-def image_upload_view(request, vehicle_id):
-    vehicle = get_object_or_404(Vehicle, id=vehicle_id)
-
+def create_vehicle(request):
     if request.method == 'POST':
-        form = VehicleImageForm(request.POST, request.FILES, instance=vehicle)
-        if form.is_valid():
-            form.save()
-            messages.success(request, _('Vehicle image uploaded successfully'))
-            return redirect('refuel:vehicle_details', vehicle_id=vehicle_id)
-        else:
-            messages.error(request, _('Invalid vehicle image form'))
-            messages.error(request, form.errors)
-            return redirect('refuel:vehicle_details', vehicle_id=vehicle_id)
-    else:
-        form = VehicleImageForm()
+        form = VehicleForm(request.POST)
 
-    return Response({'form': form}, status=status.HTTP_200_OK)
+        if form.is_valid():
+            vehicle = form.save(commit=False)
+            vehicle.user = request.user
+            vehicle.save()
+            messages.success(request, _('Vehicle added successfully'))
+            return redirect('refuel:vehicle_details', vehicle_id=vehicle.id)
+        else:
+            messages.error(request, _('Invalid vehicle form'))
+            messages.error(request, form.errors)
+
+    else:
+        form = VehicleForm()
+
+    fuel_types = FuelType.objects.all()
+    context = {
+        'form': form,
+        'fuel_types': fuel_types,
+    }
+    return render(request, 'create_vehicle.html', context=context)
+
+
+@login_required
+def delete_vehicle(request, vehicle_id):
+    vehicle = get_object_or_404(Vehicle, id=vehicle_id)
+    vehicle.delete()
+    messages.success(request, _('Vehicle deleted successfully'))
+    return redirect('refuel:user_profile', user_id=request.user.id)
