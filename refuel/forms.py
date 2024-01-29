@@ -1,4 +1,4 @@
-from .models import Vehicle, Refuel, FuelType, VehicleImage
+from .models import Vehicle, Refuel, FuelType
 from django import forms
 
 class VehicleForm(forms.ModelForm):
@@ -20,10 +20,4 @@ class RefuelForm(forms.ModelForm):
 class FuelTypeForm(forms.ModelForm):
     class Meta:
         model = FuelType
-        fields = '__all__'
-
-
-class VehicleImageForm(forms.ModelForm):
-    class Meta:
-        model = VehicleImage
         fields = '__all__'

@@ -18,12 +18,13 @@ from rest_framework.authentication import SessionAuthentication,TokenAuthenticat
 from rest_framework.decorators import authentication_classes, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from django.urls import reverse_lazy
 
 from token_auth.token_serializer import UserSerializer
 from .serializers import VehicleSerializer, RefuelSerializer, FuelTypeSerializer
 
-from .models import Vehicle, Refuel, FuelType, VehicleImage
-from .forms import VehicleForm, RefuelForm, FuelTypeForm, VehicleImageForm
+from .models import Vehicle, Refuel, FuelType
+from .forms import VehicleForm, RefuelForm, FuelTypeForm
 
 from email_login.models import User
 from .models import Vehicle, Refuel
@@ -118,14 +119,12 @@ def user_profile(request, user_id):
     token = Token.objects.filter(user=user).first()
     user_vehicles = Vehicle.objects.filter(user=user)
     refuels = Refuel.objects.all().order_by('-id')
-    vehicle_images = VehicleImage.objects.all().order_by('-id')
 
     context = {
         'user': user,
         'user_vehicles': user_vehicles,
         'refuels': refuels,
         'token': token,
-        'vehicle_images': vehicle_images,
     }
 
     return render(request, 'user_profile.html', context=context)
@@ -221,21 +220,21 @@ def vehicle_details(request, vehicle_id):
     return render(request, 'vehicle_details.html', context=context)
 
 
-@login_required()
+@login_required
 def create_vehicle(request):
     if request.method == 'POST':
-        form = VehicleForm(request.POST)
-
+        form = VehicleForm(request.POST, request.FILES)
         if form.is_valid():
             vehicle = form.save(commit=False)
             vehicle.user = request.user
             vehicle.save()
-            messages.success(request, _('Vehicle added successfully'))
-            return redirect('refuel:vehicle_details', vehicle_id=vehicle.id)
+            messages.success(request, _('Vehicle created successfully'))
+            return redirect('refuel:user_profile', user_id=request.user.id)
         else:
             messages.error(request, _('Invalid vehicle form'))
-            messages.error(request, form.errors)
-
+            for error in form.errors:
+                messages.error(request, form.errors[error])
+            return redirect('refuel:create_vehicle')
     else:
         form = VehicleForm()
 
@@ -252,4 +251,4 @@ def delete_vehicle(request, vehicle_id):
     vehicle = get_object_or_404(Vehicle, id=vehicle_id)
     vehicle.delete()
     messages.success(request, _('Vehicle deleted successfully'))
-    return redirect('refuel:user_profile', user_id=request.user.id)
+    return redirect(('refuel:user_profile'), user_id=request.user.id)

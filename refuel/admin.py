@@ -6,7 +6,7 @@ from .models import FuelType, Vehicle, Refuel
 
 import datetime
 
-from .models import FuelType, Vehicle, Refuel, VehicleImage
+from .models import FuelType, Vehicle, Refuel
 
 @admin.register(FuelType)
 class FuelTypeAdmin(admin.ModelAdmin):
@@ -23,7 +23,3 @@ class RefuelAdmin(admin.ModelAdmin):
     search_fields = ('vehicle', 'date', 'odometer', 'fuel_amount', 'cost')
     list_filter = ('vehicle', 'date', 'odometer', 'fuel_amount', 'cost')
     fields = ('vehicle', 'date', 'odometer', 'fuel_amount', 'cost')
-
-@admin.register(VehicleImage)
-class VehicleImageAdmin(admin.ModelAdmin):
-    fields = ('vehicle', 'image')

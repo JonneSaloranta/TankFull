@@ -17,9 +17,16 @@ class Vehicle(models.Model):
     model = models.CharField(max_length=100, null=True, blank=True)
     year = models.IntegerField(null=True, blank=True)
     fuel_type = models.ForeignKey(FuelType, on_delete=models.SET_NULL, null=True, blank=True)
+    image = models.ImageField(upload_to='vehicle_images', null=True, blank=True)
 
     def __str__(self):
         return f'{self.vehicle_name}'
+    
+    def save(self, *args, **kwargs):
+        super(Vehicle, self).save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        super(Vehicle, self).delete(*args, **kwargs)
     
 
 class Refuel(models.Model):
@@ -48,22 +55,3 @@ class Refuel(models.Model):
     
     class Meta:
         ordering = ['-date']
-
-
-class VehicleImage(models.Model):
-    vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='vehicle_images')
-
-    def __str__(self):
-        return f'{self.vehicle} - {self.image}'
-    
-    def save(self, *args, **kwargs):
-        self.vehicle.save()
-        super(VehicleImage, self).save(*args, **kwargs)
-    
-    def delete(self, *args, **kwargs):
-        self.vehicle.save()
-        super(VehicleImage, self).delete(*args, **kwargs)
-    
-    class Meta:
-        ordering = ['-id']
