@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-26 19:40+0200\n"
+"POT-Creation-Date: 2024-01-30 11:37+0200\n"
 "PO-Revision-Date: 2024-01-26 17:55+0000\n"
 "Last-Translator: Weblate Admin <weblate.admin@example.com>\n"
 "Language-Team: German <http://weblate.example.com/projects/refuel-project/"
@@ -27,10 +27,6 @@ msgstr ""
 
 #: .\core\settings.py:172
 msgid "Russian"
-msgstr ""
-
-#: .\custom_login\templates\login.html:11
-msgid "login-page-document-title"
 msgstr ""
 
 #: .\custom_login\templates\login.html:30
@@ -69,24 +65,126 @@ msgstr ""
 msgid "register-text"
 msgstr ""
 
-#: .\refuel\templates\features.html:9
+#: .\custom_login\templates\register.html:29
+msgid "Sign up"
+msgstr ""
+
+#: .\custom_login\templates\register.html:33
+msgid "Firstname"
+msgstr ""
+
+#: .\custom_login\templates\register.html:38
+msgid "Lastname"
+msgstr ""
+
+#: .\custom_login\templates\register.html:43
+msgid "Email"
+msgstr ""
+
+#: .\custom_login\templates\register.html:48
+msgid "Repeat Email"
+msgstr ""
+
+#: .\custom_login\templates\register.html:53
+msgid "Password"
+msgstr ""
+
+#: .\custom_login\templates\register.html:58
+msgid "Repeat Password"
+msgstr ""
+
+#: .\custom_login\templates\register.html:61
+msgid "Register"
+msgstr ""
+
+#: .\custom_login\templates\register.html:65
+msgid "Already have an account?"
+msgstr ""
+
+#: .\custom_login\templates\register.html:66
+msgid "Login"
+msgstr ""
+
+#: .\custom_login\templates\request_activation_email.html:26
+msgid "Resend activation email"
+msgstr ""
+
+#: .\custom_login\templates\request_activation_email.html:30
+msgid "Resend Email"
+msgstr ""
+
+#: .\refuel\templates\add_refuel.html:22
+msgid "Vehicle"
+msgstr ""
+
+#: .\refuel\templates\add_refuel.html:27 .\refuel\templates\add_refuel.html:28
+msgid "Date"
+msgstr ""
+
+#: .\refuel\templates\add_refuel.html:33 .\refuel\templates\add_refuel.html:35
+msgid "Odometer"
+msgstr ""
+
+#: .\refuel\templates\add_refuel.html:39 .\refuel\templates\add_refuel.html:40
+msgid "Fuel amount"
+msgstr ""
+
+#: .\refuel\templates\add_refuel.html:44 .\refuel\templates\add_refuel.html:45
+msgid "Cost"
+msgstr ""
+
+#: .\refuel\templates\add_refuel.html:49 .\refuel\templates\add_refuel.html:50
+msgid "Cost per liter"
+msgstr ""
+
+#: .\refuel\templates\add_refuel.html:53
+#: .\refuel\templates\create_vehicle.html:53
+msgid "Submit"
+msgstr ""
+
+#: .\refuel\templates\create_vehicle.html:44
+msgid "Fuel type"
+msgstr ""
+
+#: .\refuel\templates\features.html:10
 msgid "Features"
 msgstr ""
 
-#: .\refuel\templates\index.html:8
-msgid "welcome-text"
+#: .\refuel\templates\index.html:11
+msgid "Welcome"
 msgstr ""
 
-#: .\refuel\templates\index.html:11 .\refuel\templates\navbar.html:12
-msgid "homepage-text"
+#: .\refuel\templates\my_vehicles.html:33
+msgid "Details"
 msgstr ""
 
-#: .\refuel\templates\index.html:12
-msgid "homepage-welcome-text-and-introduction"
+#: .\refuel\templates\my_vehicles.html:37
+#: .\refuel\templates\my_vehicles.html:55
+msgid "Delete"
+msgstr ""
+
+#: .\refuel\templates\my_vehicles.html:47
+msgid "Confirm Deletion"
+msgstr ""
+
+#: .\refuel\templates\my_vehicles.html:51
+msgid "Are you sure you want to delete this vehicle?"
+msgstr ""
+
+#: .\refuel\templates\my_vehicles.html:54
+msgid "Cancel"
+msgstr ""
+
+#: .\refuel\templates\my_vehicles.html:65
+msgid "No vehicles yet."
 msgstr ""
 
 #: .\refuel\templates\navbar.html:7
 msgid "Toggle navigation"
+msgstr ""
+
+#: .\refuel\templates\navbar.html:12
+msgid "homepage-text"
 msgstr ""
 
 #: .\refuel\templates\navbar.html:15
@@ -105,58 +203,138 @@ msgstr ""
 msgid "Language"
 msgstr "Sprache"
 
-#: .\refuel\views.py:38
+#: .\refuel\templates\user_profile.html:11
+msgid "My Vehicles"
+msgstr ""
+
+#: .\refuel\templates\user_profile.html:30
+msgid "Add Vehicle"
+msgstr ""
+
+#: .\refuel\views.py:40
 msgid "keep-track-title-name"
 msgstr ""
 
-#: .\refuel\views.py:39
+#: .\refuel\views.py:41
 msgid "keep-track-description-text"
 msgstr ""
 
-#: .\refuel\views.py:43
+#: .\refuel\views.py:45
 msgid "statistics-title-name"
 msgstr ""
 
-#: .\refuel\views.py:44
+#: .\refuel\views.py:46
 msgid "statistics-description-text"
 msgstr ""
 
-#: .\refuel\views.py:48
+#: .\refuel\views.py:50
 msgid "compare-title-name"
 msgstr ""
 
-#: .\refuel\views.py:49
+#: .\refuel\views.py:51
 msgid "compare-description-text"
 msgstr ""
 
-#: .\refuel\views.py:53
+#: .\refuel\views.py:55
 msgid "share-title-name"
 msgstr ""
 
-#: .\refuel\views.py:54
+#: .\refuel\views.py:56
 msgid "share-description-text"
 msgstr ""
 
-#: .\refuel\views.py:58
+#: .\refuel\views.py:60
 msgid "export-title-name"
 msgstr ""
 
-#: .\refuel\views.py:59
+#: .\refuel\views.py:61
 msgid "export-description-text"
 msgstr ""
 
-#: .\refuel\views.py:63
+#: .\refuel\views.py:65
 msgid "import-title-name"
 msgstr ""
 
-#: .\refuel\views.py:64
+#: .\refuel\views.py:66
 msgid "import-description-text"
 msgstr ""
 
-#: .\refuel\views.py:68
+#: .\refuel\views.py:70
 msgid "token-auth-title-name"
 msgstr ""
 
-#: .\refuel\views.py:69
+#: .\refuel\views.py:71
 msgid "token-auth-text"
+msgstr ""
+
+#: .\refuel\views.py:99 .\refuel\views.py:164
+msgid "Fuel price average per month"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "January"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "February"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "March"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "April"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "May"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "June"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "July"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "August"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "September"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "October"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "November"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "December"
+msgstr ""
+
+#: .\refuel\views.py:144
+msgid "Refuel added successfully"
+msgstr ""
+
+#: .\refuel\views.py:147
+msgid "Invalid refuel form"
+msgstr ""
+
+#: .\refuel\views.py:231
+msgid "Vehicle created successfully"
+msgstr ""
+
+#: .\refuel\views.py:234
+msgid "Invalid vehicle form"
+msgstr ""
+
+#: .\refuel\views.py:253
+msgid "Vehicle deleted successfully"
 msgstr ""
