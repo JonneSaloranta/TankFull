@@ -33,6 +33,14 @@ INTERNAL_IPS=127.0.0.1,localhost,0.0.0.0
 REDIS_PASSWORD=changeme # redis cache password
 ```
 
+### Translation
+
+Do you want to help translate? [Click here](https://weblate.kotipalvelin.com/engage/tankfull/)
+
+<a href="https://weblate.kotipalvelin.com/engage/tankfull/">
+<img src="https://weblate.kotipalvelin.com/widget/tankfull/multi-auto.svg" alt="Translation status" />
+</a>
+
 ### Docker
 
 To install the TankFull Tracker using Docker, follow these steps:
@@ -41,30 +49,10 @@ To install the TankFull Tracker using Docker, follow these steps:
 
 2. cd into the root directory.
 
-3. Run the following command for redis cache:
+3. Run the following command:
 
     ```bash
-    docker compose up
-    ```
-
-### Bare metal
-
-To install the TankFull Tracker, follow these steps:
-
-1. Clone the repository to your local machine.
-
-2. Install Python 3.9.6 or later.
-
-3. Install the required packages using the following command:
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-4. Run the application using the following command:
-
-    ```bash
-    python manage.py runserver
+    docker compose up -d
     ```
 
 ## Usage
