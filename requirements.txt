@@ -4,3 +4,6 @@ python-decouple
 django-debug-toolbar
 django-redis
 djangorestframework
+Pillow
+gunicorn
+waitress

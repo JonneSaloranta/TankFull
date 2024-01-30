@@ -1,16 +1,60 @@
 {% extends 'base.html' %}
 
 {% load i18n %}
+{% load custom_filters %}
 
 {% block content %}
+{% include "notifications.html" %}
+
+{%if user.is_authenticated%}
 <div class="container text-center">
-    {%if user.is_authenticated%}
-    <h1>{% trans 'welcome-text' %} {{request.user.name|capfirst}}</h1>
-
-    {%endif%}
-    <h1>{% trans "homepage-text" %}</h1>
-    <p class="lead">{% trans 'homepage-welcome-text-and-introduction' %}</p>
+    <h2>{% trans 'Welcome' %} {{request.user.name|capfirst}}</h2>
 </div>
+{%endif%}
 
+<!--
+<div class="container text-center">
+    <h2>{{0|number_of_active_users}} active users.</h2>
+</div>
+-->
+
+<div class="container text-center">
+    <div class="p-5 mb-4">
+        <div class="container-fluid">
+            <h1 class="display-5 fw-bold text-center pb-5">The TankFull-Project</h1>
+            <h2 class="fw-bold text-center pb-3">About Our Project:</h2>
+            <div class="d-flex justify-content-center align-items-center">
+                <p class="col-lg-8 bg-body-tertiary rounded-3 p-5 fs-5 text-center">
+                    We're working on a modest yet ambitious project, a Vehicle Fueling and Charging Data Tracker, currently in the development phase. It's a simple tool designed for individuals and small businesses to keep track of their
+                    vehicle's fuel
+                    consumption, costs, and efficiency. Users can add several vehicles, monitor expenditures, and calculate average fuel consumption. You can also personalize it by adding images of your vehicles. It's a work in progress, so
+                    we're not quite ready for widespread use just yet. We recommend it for personal or experimental use for the time being.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="p-5 mb-4">
+        <div class="container-fluid">
+            <h2 class="fw-bold text-center pb-3">What We're Working On:</h2>
+            <div class="d-flex justify-content-center align-items-center">
+                <p class="col-lg-8 bg-body-tertiary rounded-3 p-5 fs-5 text-center">We're really just getting started. Our current version offers basic tracking and a secure login system. But we have big dreams: integrating with Raspberry
+                    Pi for
+                    more accurate, real-time
+                    tracking, adding graphical data representation for
+                    easier interpretation, and enabling data export/import for better record-keeping. These are just ideas right now, but we're excited about where they could lead and how they could improve our tool.</p>
+            </div>
+        </div>
+    </div>
+    <div class="p-5 mb-4">
+        <div class="container-fluid">
+            <h2 class="fw-bold text-center pb-3">Join Us on This Journey:</h2>
+            <div class="d-flex justify-content-center align-items-center">
+                <p class="col-lg-8 bg-body-tertiary rounded-3 p-5 fs-5 text-center">We're a small team and we know we have a lot to learn. If you're interested in what we're doing and have some thoughts or suggestions, we'd
+                    love to hear
+                    from you. Every bit of feedback helps us make this tool better for everyone. We'll keep you updated as we make progress and figure things out. Thank you for your interest in our humble project!</p>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

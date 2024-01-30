@@ -4,6 +4,10 @@ from django.contrib import admin
 
 from .models import FuelType, Vehicle, Refuel   
 
+import datetime
+
+from .models import FuelType, Vehicle, Refuel
+
 @admin.register(FuelType)
 class FuelTypeAdmin(admin.ModelAdmin):
     list_display = ('fuel_type', 'measurement_unit')
@@ -14,4 +18,8 @@ class VehicleAdmin(admin.ModelAdmin):
     search_fields = ('user','vehicle_name', 'make', 'model', 'year', 'fuel_type')
 @admin.register(Refuel)
 class RefuelAdmin(admin.ModelAdmin):
+    list_display = ('vehicle', 'date', 'odometer', 'fuel_amount', 'cost')
     autocomplete_fields = ('vehicle',)
+    search_fields = ('vehicle', 'date', 'odometer', 'fuel_amount', 'cost')
+    list_filter = ('vehicle', 'date', 'odometer', 'fuel_amount', 'cost')
+    fields = ('vehicle', 'date', 'odometer', 'fuel_amount', 'cost')

@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-26 15:33+0200\n"
-"PO-Revision-Date: 2024-01-26 13:58+0000\n"
+"POT-Creation-Date: 2024-01-30 11:37+0200\n"
+"PO-Revision-Date: 2024-01-26 17:55+0000\n"
 "Last-Translator: Weblate Admin <weblate.admin@example.com>\n"
 "Language-Team: English <http://weblate.example.com/projects/refuel-project/"
-"development/en/>\n"
+"dev-1/en/>\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,10 +34,6 @@ msgstr "Swedish"
 #: .\core\settings.py:172
 msgid "Russian"
 msgstr "Russian"
-
-#: .\custom_login\templates\login.html:11
-msgid "login-page-document-title"
-msgstr "Login"
 
 #: .\custom_login\templates\login.html:30
 msgid "please-login-in"
@@ -75,27 +71,133 @@ msgstr "Need an account?"
 msgid "register-text"
 msgstr "Register"
 
-#: .\refuel\templates\features.html:9
+#: .\custom_login\templates\register.html:29
+msgid "Sign up"
+msgstr ""
+
+#: .\custom_login\templates\register.html:33
+msgid "Firstname"
+msgstr ""
+
+#: .\custom_login\templates\register.html:38
+msgid "Lastname"
+msgstr ""
+
+#: .\custom_login\templates\register.html:43
+msgid "Email"
+msgstr ""
+
+#: .\custom_login\templates\register.html:48
+msgid "Repeat Email"
+msgstr ""
+
+#: .\custom_login\templates\register.html:53
+msgid "Password"
+msgstr ""
+
+#: .\custom_login\templates\register.html:58
+msgid "Repeat Password"
+msgstr ""
+
+#: .\custom_login\templates\register.html:61
+#, fuzzy
+#| msgid "register-text"
+msgid "Register"
+msgstr "Register"
+
+#: .\custom_login\templates\register.html:65
+#, fuzzy
+#| msgid "need-an-account-question-text"
+msgid "Already have an account?"
+msgstr "Need an account?"
+
+#: .\custom_login\templates\register.html:66
+msgid "Login"
+msgstr ""
+
+#: .\custom_login\templates\request_activation_email.html:26
+msgid "Resend activation email"
+msgstr ""
+
+#: .\custom_login\templates\request_activation_email.html:30
+msgid "Resend Email"
+msgstr ""
+
+#: .\refuel\templates\add_refuel.html:22
+msgid "Vehicle"
+msgstr ""
+
+#: .\refuel\templates\add_refuel.html:27 .\refuel\templates\add_refuel.html:28
+msgid "Date"
+msgstr ""
+
+#: .\refuel\templates\add_refuel.html:33 .\refuel\templates\add_refuel.html:35
+msgid "Odometer"
+msgstr ""
+
+#: .\refuel\templates\add_refuel.html:39 .\refuel\templates\add_refuel.html:40
+msgid "Fuel amount"
+msgstr ""
+
+#: .\refuel\templates\add_refuel.html:44 .\refuel\templates\add_refuel.html:45
+msgid "Cost"
+msgstr ""
+
+#: .\refuel\templates\add_refuel.html:49 .\refuel\templates\add_refuel.html:50
+msgid "Cost per liter"
+msgstr ""
+
+#: .\refuel\templates\add_refuel.html:53
+#: .\refuel\templates\create_vehicle.html:53
+msgid "Submit"
+msgstr ""
+
+#: .\refuel\templates\create_vehicle.html:44
+msgid "Fuel type"
+msgstr ""
+
+#: .\refuel\templates\features.html:10
 msgid "Features"
 msgstr "Features"
 
-#: .\refuel\templates\index.html:8
-msgid "welcome-text"
+#: .\refuel\templates\index.html:11
+#, fuzzy
+#| msgid "welcome-text"
+msgid "Welcome"
 msgstr "Welcome"
 
-#: .\refuel\templates\index.html:11 .\refuel\templates\navbar.html:12
-msgid "homepage-text"
-msgstr "Home"
-
-#: .\refuel\templates\index.html:12
-msgid "homepage-welcome-text-and-introduction"
+#: .\refuel\templates\my_vehicles.html:33
+msgid "Details"
 msgstr ""
-"Welcome to the home page of the website. This is where you can find all the "
-"information about the website and the project."
+
+#: .\refuel\templates\my_vehicles.html:37
+#: .\refuel\templates\my_vehicles.html:55
+msgid "Delete"
+msgstr ""
+
+#: .\refuel\templates\my_vehicles.html:47
+msgid "Confirm Deletion"
+msgstr ""
+
+#: .\refuel\templates\my_vehicles.html:51
+msgid "Are you sure you want to delete this vehicle?"
+msgstr ""
+
+#: .\refuel\templates\my_vehicles.html:54
+msgid "Cancel"
+msgstr ""
+
+#: .\refuel\templates\my_vehicles.html:65
+msgid "No vehicles yet."
+msgstr ""
 
 #: .\refuel\templates\navbar.html:7
 msgid "Toggle navigation"
 msgstr "Toggle navigation"
+
+#: .\refuel\templates\navbar.html:12
+msgid "homepage-text"
+msgstr "Home"
 
 #: .\refuel\templates\navbar.html:15
 msgid "admin-dashboard-text"
@@ -109,58 +211,180 @@ msgstr "Features"
 msgid "logout-text"
 msgstr "Logout"
 
-#: .\refuel\views.py:36
+#: .\refuel\templates\navbar.html:31
+msgid "Language"
+msgstr "Language"
+
+#: .\refuel\templates\user_profile.html:11
+msgid "My Vehicles"
+msgstr ""
+
+#: .\refuel\templates\user_profile.html:30
+msgid "Add Vehicle"
+msgstr ""
+
+#: .\refuel\views.py:40
 msgid "keep-track-title-name"
 msgstr "Keep track"
 
-#: .\refuel\views.py:37
+#: .\refuel\views.py:41
 msgid "keep-track-description-text"
 msgstr "Keep track of your refuels and see how much you have spent on fuel."
 
-#: .\refuel\views.py:41
+#: .\refuel\views.py:45
 msgid "statistics-title-name"
 msgstr "Statistics"
 
-#: .\refuel\views.py:42
+#: .\refuel\views.py:46
 msgid "statistics-description-text"
 msgstr "See your fueling statistics in a graph."
 
-#: .\refuel\views.py:46
+#: .\refuel\views.py:50
 msgid "compare-title-name"
 msgstr "Compare"
 
-#: .\refuel\views.py:47
+#: .\refuel\views.py:51
 msgid "compare-description-text"
 msgstr "Compare your refuels to others."
 
-#: .\refuel\views.py:51
+#: .\refuel\views.py:55
 msgid "share-title-name"
 msgstr "Share"
 
-#: .\refuel\views.py:52
+#: .\refuel\views.py:56
 msgid "share-description-text"
 msgstr "Share your refuels with others."
 
-#: .\refuel\views.py:56
+#: .\refuel\views.py:60
 msgid "export-title-name"
 msgstr "Export"
 
-#: .\refuel\views.py:57
+#: .\refuel\views.py:61
 msgid "export-description-text"
 msgstr "Export your refuels to a file."
 
-#: .\refuel\views.py:61
+#: .\refuel\views.py:65
 msgid "import-title-name"
 msgstr "Import"
 
-#: .\refuel\views.py:62
+#: .\refuel\views.py:66
 msgid "import-description-text"
 msgstr "Import your refuels from a file."
 
-#: .\refuel\views.py:66
+#: .\refuel\views.py:70
 msgid "token-auth-title-name"
 msgstr "Token Authentication"
 
-#: .\refuel\views.py:67
+#: .\refuel\views.py:71
 msgid "token-auth-text"
 msgstr "Now with token authentication to use in 3rd-party software"
+
+#: .\refuel\views.py:99 .\refuel\views.py:164
+msgid "Fuel price average per month"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "January"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "February"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "March"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "April"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "May"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "June"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "July"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "August"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "September"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "October"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "November"
+msgstr ""
+
+#: .\refuel\views.py:100 .\refuel\views.py:165
+msgid "December"
+msgstr ""
+
+#: .\refuel\views.py:144
+msgid "Refuel added successfully"
+msgstr ""
+
+#: .\refuel\views.py:147
+msgid "Invalid refuel form"
+msgstr ""
+
+#: .\refuel\views.py:231
+msgid "Vehicle created successfully"
+msgstr ""
+
+#: .\refuel\views.py:234
+msgid "Invalid vehicle form"
+msgstr ""
+
+#: .\refuel\views.py:253
+msgid "Vehicle deleted successfully"
+msgstr ""
+
+#~ msgid "login-page-document-title"
+#~ msgstr "Login"
+
+#, fuzzy
+#~| msgid "login-page-document-title"
+#~ msgid "register-page-document-title"
+#~ msgstr "Login"
+
+#, fuzzy
+#~| msgid "register-text"
+#~ msgid "register-firstname-field-text"
+#~ msgstr "Register"
+
+#, fuzzy
+#~| msgid "email-field-text"
+#~ msgid "register-email-field-text"
+#~ msgstr "Email"
+
+#, fuzzy
+#~| msgid "email-field-text"
+#~ msgid "register-repeat-email-field-text"
+#~ msgstr "Email"
+
+#, fuzzy
+#~| msgid "password-field-text"
+#~ msgid "register-password-field-text"
+#~ msgstr "Password"
+
+#, fuzzy
+#~| msgid "password-field-text"
+#~ msgid "register-repeat-password-field-text"
+#~ msgstr "Password"
+
+#~ msgid "homepage-welcome-text-and-introduction"
+#~ msgstr ""
+#~ "Welcome to the home page of the website. This is where you can find all "
+#~ "the information about the website and the project."
